@@ -43,11 +43,6 @@ export interface Education {
     description?: string;
 }
 
-export interface ChatMessage {
-    id: string;
-    sender: 'user' | 'ai';
-    text: string;
-    timestamp: Date;
-}
+
 
 

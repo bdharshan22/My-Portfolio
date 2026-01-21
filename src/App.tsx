@@ -8,7 +8,7 @@ import Contact from './components/Contact';
 import SplashScreen from './components/SplashScreen';
 import Certifications from './components/Certifications';
 
-import AIChat from './components/AIChat';
+
 import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
         <Certifications />
 
         <Contact />
-        <AIChat />
+
       </div>
     </ThemeProvider>
   );
