@@ -1,0 +1,229 @@
+import React, { useRef, useState } from "react";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useMotionValueEvent,
+} from "framer-motion";
+
+import { X, Menu, Home, User, Briefcase, Code, Mail } from "lucide-react";
+
+
+// Utility for class merging (simple version)
+const cn = (...classes: (string | undefined | null | false)[]) => classes.filter(Boolean).join(" ");
+
+interface NavbarContainerProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+interface NavBodyProps {
+  children: React.ReactNode;
+  className?: string;
+  visible?: boolean;
+}
+
+interface NavItemsProps {
+  items: {
+    name: string;
+    link: string;
+    icon: React.ReactNode;
+  }[];
+  className?: string;
+  onItemClick?: () => void;
+  visible?: boolean;
+}
+
+export const NavbarContainer = ({ children, className }: NavbarContainerProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollY } = useScroll();
+  const [visible, setVisible] = useState<boolean>(false);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (latest > 50) {
+      setVisible(true);
+    } else {
+      setVisible(false);
+    }
+  });
+
+  return (
+    <motion.div
+      ref={ref}
+      className={cn(
+        "fixed inset-x-0 z-40 w-full top-6 transition-all duration-300",
+        visible ? "top-2" : "top-6",
+        className
+      )}
+    >
+      {React.Children.map(children, (child) =>
+        React.isValidElement(child)
+          ? React.cloneElement(
+            child as React.ReactElement<{ visible?: boolean }>,
+            { visible }
+          )
+          : child
+      )}
+    </motion.div>
+  );
+};
+
+export const NavBody = ({ children, className, visible }: NavBodyProps) => {
+  return (
+    <motion.div
+      animate={{
+        width: visible ? "90%" : "95%",
+        maxWidth: visible ? "800px" : "1200px",
+      }}
+      initial={{
+        width: "95%",
+        maxWidth: "1200px"
+      }}
+      transition={{
+        type: "spring",
+        stiffness: 200,
+        damping: 30,
+      }}
+      className={cn(
+        "relative z-[60] mx-auto flex flex-row items-center justify-between px-4 py-2 transition-all duration-300 dark:text-white rounded-full",
+        visible
+          ? "bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-md border border-slate-200 dark:border-slate-800"
+          : "bg-transparent",
+        className
+      )}
+    >
+      {React.Children.map(children, (child) =>
+        React.isValidElement(child)
+          ? React.cloneElement(
+            child as React.ReactElement<{ visible?: boolean }>,
+            { visible }
+          )
+          : child
+      )}
+    </motion.div>
+  );
+};
+
+export const NavItems = ({
+  items,
+  className,
+  onItemClick,
+}: NavItemsProps) => {
+  const [hovered, setHovered] = useState<number | null>(null);
+
+  return (
+    <motion.div
+      onMouseLeave={() => setHovered(null)}
+      className={cn(
+        "hidden lg:flex flex-row items-center justify-center space-x-1",
+        className
+      )}
+    >
+      {items.map((item, idx) => (
+        <a // Changed to 'a' tag for hashed links to work reliably without react-scroll setup
+          key={`link-${idx}`}
+          href={item.link}
+          onMouseEnter={() => setHovered(idx)}
+          onClick={onItemClick}
+          className="relative px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+        >
+          {hovered === idx && (
+            <motion.div
+              layoutId="hovered"
+              className="absolute inset-0 w-full h-full bg-slate-100 dark:bg-slate-800 rounded-full -z-10"
+              transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+            />
+          )}
+          <span className="relative z-20 flex items-center gap-2">
+            {/* Optional: Show icon on desktop too? User code only showed name. Keeping name only for clean look */}
+            {item.name}
+          </span>
+        </a>
+      ))}
+    </motion.div>
+  );
+};
+
+export const MobileNav = ({ children }: any) => {
+  return (
+    <div className="lg:hidden">{children}</div>
+  );
+};
+
+export const NavbarLogo = () => {
+  return (
+    <a
+      href="/"
+      className="flex items-center gap-2 px-2 py-1 font-bold text-xl tracking-tighter text-slate-900 dark:text-white group"
+    >
+      <div className="w-8 h-8 rounded-full overflow-hidden shadow-md border border-slate-200 dark:border-slate-700">
+        <img src="/images/logo 3.jpeg" alt="Logo" className="w-full h-full object-cover" />
+      </div>
+      <span className="hidden sm:inline">Portfolio</span>
+    </a>
+  );
+};
+
+
+
+const navItems = [
+  { name: "Home", link: "#hero", icon: <Home size={20} /> },
+  { name: "About", link: "#about", icon: <User size={20} /> },
+  { name: "Skills", link: "#skills", icon: <Code size={20} /> }, // Added Skills link
+  { name: "Projects", link: "#projects", icon: <Briefcase size={20} /> },
+  { name: "Contact", link: "#contact", icon: <Mail size={20} /> },
+];
+
+const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  return (
+    <>
+      <NavbarContainer>
+        <NavBody>
+          <NavbarLogo />
+
+          <NavItems items={navItems} /> {/* Desktop Menu */}
+
+          <div className="flex items-center gap-3">
+            {/* Mobile Toggle */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
+            >
+              {isMobileMenuOpen ? <X /> : <Menu />}
+            </button>
+          </div>
+        </NavBody>
+
+        {/* Mobile Menu Dropdown */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -20, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              className="absolute top-full left-4 right-4 mt-2 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800 p-4 lg:hidden flex flex-col gap-2"
+            >
+              {navItems.map((item, idx) => (
+                <a
+                  key={idx}
+                  href={item.link}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors"
+                >
+                  <span className="text-indigo-600 dark:text-indigo-400">{item.icon}</span>
+                  <span className="font-medium">{item.name}</span>
+                </a>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </NavbarContainer>
+
+    </>
+  );
+};
+
+export default Navbar;
