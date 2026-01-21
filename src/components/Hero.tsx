@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-slate-50 dark:bg-slate-950">
       {/* Background Blobs */}
-      {/* Background Blobs Removed */}
+      {/* Background Blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Grid Pattern */}
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />

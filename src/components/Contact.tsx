@@ -1,8 +1,5 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin, Twitter, Mail } from "lucide-react";
-import Modal from "./Modal";
-import ContactForm from "./ContactForm";
 
 // Custom StackOverflow Icon
 const StackOverflowIcon = ({ size = 24 }: { size?: number }) => (
@@ -20,7 +17,6 @@ const SOCIAL_LINKS = [
 ];
 
 const Contact = () => {
-  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
 
   return (
     <section
@@ -54,9 +50,14 @@ const Contact = () => {
         </motion.div>
 
         <motion.button
+          key="contact-btn-v5"
+          onClick={() => window.open(
+            "https://mail.google.com/mail/?view=cm&fs=1&to=dharshancgm2005@gmail.com",
+            "_blank",
+            "width=800,height=600,scrollbars=yes,resizable=yes"
+          )}
           whileHover={{ scale: 1.1 }}
           transition={{ type: "spring", stiffness: 300 }}
-          onClick={() => setIsContactFormOpen(true)}
           className="my-10 group relative inline-flex cursor-pointer items-center justify-between overflow-hidden rounded-full border border-indigo-500/30 bg-indigo-500/10 backdrop-blur-md py-2 pr-2 pl-6 text-base font-medium transition-all hover:bg-indigo-500/20"
         >
           <span className="z-10 text-slate-800 dark:text-white transition-colors duration-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-300 font-semibold">
@@ -92,14 +93,6 @@ const Contact = () => {
           ))}
         </div>
       </div>
-
-      {/* Contact Modal */}
-      <Modal
-        isOpen={isContactFormOpen}
-        onClose={() => setIsContactFormOpen(false)}
-      >
-        <ContactForm handleClose={() => setIsContactFormOpen(false)} />
-      </Modal>
     </section>
   );
 };

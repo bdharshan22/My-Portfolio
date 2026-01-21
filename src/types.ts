@@ -50,8 +50,4 @@ export interface ChatMessage {
     timestamp: Date;
 }
 
-export interface ContactFormInputs {
-    name: string;
-    email: string;
-    message: string;
-}
+

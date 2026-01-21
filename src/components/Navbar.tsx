@@ -50,9 +50,9 @@ export const NavbarContainer = ({ children, className }: NavbarContainerProps) =
   return (
     <motion.div
       ref={ref}
+      // Fixed at top, no movement
       className={cn(
-        "fixed inset-x-0 z-40 w-full top-6 transition-all duration-300",
-        visible ? "top-2" : "top-6",
+        "fixed inset-x-0 z-50 w-full top-0 transition-all duration-300",
         className
       )}
     >
@@ -70,37 +70,18 @@ export const NavbarContainer = ({ children, className }: NavbarContainerProps) =
 
 export const NavBody = ({ children, className, visible }: NavBodyProps) => {
   return (
-    <motion.div
-      animate={{
-        width: visible ? "90%" : "95%",
-        maxWidth: visible ? "800px" : "1200px",
-      }}
-      initial={{
-        width: "95%",
-        maxWidth: "1200px"
-      }}
-      transition={{
-        type: "spring",
-        stiffness: 200,
-        damping: 30,
-      }}
+    <div
       className={cn(
-        "relative z-[60] mx-auto flex flex-row items-center justify-between px-4 py-2 transition-all duration-300 dark:text-white rounded-full",
+        "relative mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 transition-all duration-300 dark:text-white",
         visible
-          ? "bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-md border border-slate-200 dark:border-slate-800"
+          ? "bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm border-b border-slate-200 dark:border-slate-800"
           : "bg-transparent",
         className
       )}
     >
-      {React.Children.map(children, (child) =>
-        React.isValidElement(child)
-          ? React.cloneElement(
-            child as React.ReactElement<{ visible?: boolean }>,
-            { visible }
-          )
-          : child
-      )}
-    </motion.div>
+      {/* Do not pass 'visible' to children to avoid DOM warnings */}
+      {children}
+    </div>
   );
 };
 
@@ -174,6 +155,10 @@ const navItems = [
   { name: "Contact", link: "#contact", icon: <Mail size={20} /> },
 ];
 
+// ... existing code ...
+
+import { ThemeToggle } from "./ThemeToggle";
+
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -186,6 +171,8 @@ const Navbar = () => {
           <NavItems items={navItems} /> {/* Desktop Menu */}
 
           <div className="flex items-center gap-3">
+            <ThemeToggle />
+
             {/* Mobile Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
