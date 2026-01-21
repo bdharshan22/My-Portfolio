@@ -58,13 +58,13 @@ const Contact = () => {
           )}
           whileHover={{ scale: 1.1 }}
           transition={{ type: "spring", stiffness: 300 }}
-          className="my-10 group relative inline-flex cursor-pointer items-center justify-between overflow-hidden rounded-full border border-indigo-500/30 bg-indigo-500/10 backdrop-blur-md py-2 pr-2 pl-6 text-base font-medium transition-all hover:bg-indigo-500/20"
+          className="my-10 group relative inline-flex cursor-pointer items-center justify-between overflow-hidden rounded-full border border-primary-500/30 bg-primary-500/10 backdrop-blur-md py-2 pr-2 pl-6 text-base font-medium transition-all hover:bg-primary-500/20"
         >
-          <span className="z-10 text-slate-800 dark:text-white transition-colors duration-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-300 font-semibold">
+          <span className="z-10 text-slate-800 dark:text-white transition-colors duration-300 group-hover:text-primary-600 dark:group-hover:text-primary-300 font-semibold">
             Get In Touch
           </span>
 
-          <span className="ml-4 flex items-center justify-center overflow-hidden rounded-full bg-indigo-600 p-2 transition-colors duration-300 group-hover:bg-indigo-700">
+          <span className="ml-4 flex items-center justify-center overflow-hidden rounded-full bg-primary-600 p-2 transition-colors duration-300 group-hover:bg-primary-700">
             <ArrowRight className="text-white transition-all duration-300 group-hover:translate-x-1" size={16} />
           </span>
         </motion.button>

@@ -157,7 +157,7 @@ const navItems = [
 
 // ... existing code ...
 
-import { ThemeToggle } from "./ThemeToggle";
+import { ThemeModeToggle, ThemeColorPicker } from "./ThemeToggle";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -170,8 +170,9 @@ const Navbar = () => {
 
           <NavItems items={navItems} /> {/* Desktop Menu */}
 
-          <div className="flex items-center gap-3">
-            <ThemeToggle />
+          <div className="flex items-center gap-2">
+            <ThemeModeToggle />
+            <ThemeColorPicker />
 
             {/* Mobile Toggle */}
             <button

@@ -86,13 +86,13 @@ const Hero: React.FC = () => {
           >
             <motion.div
               variants={fadeInUp}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-800 backdrop-blur-sm"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 backdrop-blur-sm"
             >
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              <span className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wide">
+              <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide">
                 Available for new projects
               </span>
             </motion.div>
@@ -103,7 +103,7 @@ const Hero: React.FC = () => {
                 className="text-5xl md:text-7xl font-bold tracking-tight text-black dark:text-white leading-tight"
               >
                 Hi, I'm <br />
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-500 animate-gradient-x">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-purple-600 dark:from-primary-400 dark:to-purple-500 animate-gradient-x">
                   {HERO_DATA.name}
                 </span>
               </motion.h1>
@@ -126,10 +126,10 @@ const Hero: React.FC = () => {
               variants={fadeInUp}
               className="flex flex-wrap items-center justify-center lg:justify-start gap-4"
             >
-              <a href="#projects" className="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full font-bold transition-all hover:scale-105 hover:shadow-indigo-500/25 flex items-center gap-2 shadow-lg group">
+              <a href="#projects" className="px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white rounded-full font-bold transition-all hover:scale-105 hover:shadow-primary-500/25 flex items-center gap-2 shadow-lg group">
                 View Work <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </a>
-              <a href={resumePdf} target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-full font-bold hover:border-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all hover:scale-105 flex items-center gap-2">
+              <a href={resumePdf} target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-full font-bold hover:border-primary-500 hover:text-primary-600 dark:hover:text-primary-400 transition-all hover:scale-105 flex items-center gap-2">
                 Resume <Download size={18} />
               </a>
             </motion.div>
@@ -157,7 +157,7 @@ const Hero: React.FC = () => {
               className="relative w-full aspect-square max-w-xs mx-auto"
             >
               {/* Background Glow */}
-              <div className="absolute inset-0 bg-indigo-500 blur-[80px] opacity-20 animate-pulse rounded-full" />
+              <div className="absolute inset-0 bg-primary-500 blur-[80px] opacity-20 animate-pulse rounded-full" />
 
               {/* Main Image Container */}
               <div className="relative z-10 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shadow-2xl">
@@ -202,11 +202,11 @@ const Hero: React.FC = () => {
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-1.5 h-1.5 bg-indigo-500 rounded-full"
+            className="w-1.5 h-1.5 bg-primary-500 rounded-full"
           />
         </div>
       </motion.div>
-    </section>
+    </section >
   );
 };
 
@@ -217,7 +217,7 @@ const SocialLink = ({ icon, href }: { icon: React.ReactNode, href: string }) => 
     rel="noopener noreferrer"
     whileHover={{ scale: 1.1, y: -3 }}
     whileTap={{ scale: 0.95 }}
-    className="p-3 text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors bg-white dark:bg-slate-800 rounded-full shadow-sm hover:shadow-md border border-slate-200 dark:border-slate-700"
+    className="p-3 text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors bg-white dark:bg-slate-800 rounded-full shadow-sm hover:shadow-md border border-slate-200 dark:border-slate-700"
   >
     {icon}
   </motion.a>

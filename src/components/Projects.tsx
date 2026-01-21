@@ -84,7 +84,7 @@ const Projects: React.FC = () => {
           className="text-center mb-16"
         >
           <motion.h2 variants={fadeInUp} className="text-4xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white">
-            Featured <span className="text-indigo-600">Projects</span>
+            Featured <span className="text-primary-600">Projects</span>
           </motion.h2>
           <motion.p variants={fadeInUp} className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">
             Explore my work. Click a card to view detailed project information.
@@ -104,7 +104,7 @@ const Projects: React.FC = () => {
               whileHover={{ y: -12, transition: { duration: 0.3 } }}
               viewport={{ once: true, margin: "-50px" }}
               onClick={() => setSelectedId(project.id)}
-              className="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden cursor-pointer shadow-md border border-slate-200 dark:border-slate-800 hover:shadow-2xl hover:shadow-indigo-500/20 transition-all duration-300 group relative transform-gpu"
+              className="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden cursor-pointer shadow-md border border-slate-200 dark:border-slate-800 hover:shadow-2xl hover:shadow-primary-500/20 transition-all duration-300 group relative transform-gpu"
             >
               <div className="relative h-48 overflow-hidden bg-slate-200 dark:bg-slate-800">
                 <motion.img
@@ -117,7 +117,7 @@ const Projects: React.FC = () => {
                 {/* Overlay on Hover */}
                 <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 backdrop-blur-[2px]">
                   <motion.div
-                    className="flex items-center gap-1.5 text-indigo-200 text-xs font-mono uppercase tracking-widest transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75"
+                    className="flex items-center gap-1.5 text-primary-200 text-xs font-mono uppercase tracking-widest transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75"
                   >
                     <MousePointerClick size={14} />
                     <span>Click for Details</span>
@@ -137,7 +137,7 @@ const Projects: React.FC = () => {
                 <div className="flex justify-between items-start mb-2">
                   <motion.h3
                     layoutId={`title-${project.id}`}
-                    className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
+                    className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors"
                   >
                     {project.title}
                   </motion.h3>
@@ -214,7 +214,7 @@ const Projects: React.FC = () => {
                         {selectedProject.title}
                       </motion.h2>
                       <div className="flex items-center gap-2">
-                        <span className="inline-block px-3 py-1 bg-indigo-500/20 backdrop-blur-md border border-indigo-500/30 rounded-full text-xs font-mono text-indigo-200">
+                        <span className="inline-block px-3 py-1 bg-primary-500/20 backdrop-blur-md border border-primary-500/30 rounded-full text-xs font-mono text-primary-200">
                           v1.0.4-stable
                         </span>
                         <span className={`inline-block px-3 py-1 backdrop-blur-md border border-white/10 rounded-full text-xs font-mono text-white ${getStatusColor(selectedProject.status)} bg-opacity-80`}>
@@ -227,7 +227,7 @@ const Projects: React.FC = () => {
 
                 <div className="p-6 md:p-8 space-y-8 max-w-4xl mx-auto">
                   <div>
-                    <h3 className="flex items-center gap-2 text-sm font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-widest mb-4">
+                    <h3 className="flex items-center gap-2 text-sm font-bold text-primary-600 dark:text-primary-400 uppercase tracking-widest mb-4">
                       <Cpu size={16} /> Technical Overview
                     </h3>
                     <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-lg">
@@ -236,13 +236,13 @@ const Projects: React.FC = () => {
                   </div>
 
                   <div>
-                    <h3 className="flex items-center gap-2 text-sm font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-widest mb-4">
+                    <h3 className="flex items-center gap-2 text-sm font-bold text-primary-600 dark:text-primary-400 uppercase tracking-widest mb-4">
                       <Sparkles size={16} /> Key Features
                     </h3>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {selectedProject.features.map((feature, i) => (
                         <li key={i} className="flex items-center gap-3 text-slate-600 dark:text-slate-400 text-sm bg-white dark:bg-slate-900 p-3 rounded-lg border border-slate-200 dark:border-slate-800">
-                          <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0 shadow-[0_0_8px_rgba(99,102,241,0.5)]" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-primary-500 shrink-0 shadow-[0_0_8px_rgba(var(--primary-rgb),0.5)]" />
                           {feature}
                         </li>
                       ))}
@@ -250,7 +250,7 @@ const Projects: React.FC = () => {
                   </div>
 
                   <div>
-                    <h3 className="flex items-center gap-2 text-sm font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-widest mb-4">
+                    <h3 className="flex items-center gap-2 text-sm font-bold text-primary-600 dark:text-primary-400 uppercase tracking-widest mb-4">
                       <Terminal size={16} /> Tech Stack
                     </h3>
                     <div className="flex flex-wrap gap-2">
@@ -263,10 +263,10 @@ const Projects: React.FC = () => {
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-slate-200 dark:border-slate-800">
-                    <a href={selectedProject.liveUrl} className="flex-1 py-3.5 px-6 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-lg shadow-indigo-500/25">
+                    <a href={selectedProject.liveUrl} className="flex-1 py-3.5 px-6 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-bold flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-lg shadow-primary-500/25">
                       Launch Demo <ExternalLink size={18} />
                     </a>
-                    <a href={selectedProject.githubUrl} className="flex-1 py-3.5 px-6 bg-slate-100 dark:bg-slate-800 border-2 border-transparent hover:border-indigo-500 text-slate-900 dark:text-white rounded-xl font-bold flex items-center justify-center gap-2 transition-all">
+                    <a href={selectedProject.githubUrl} className="flex-1 py-3.5 px-6 bg-slate-100 dark:bg-slate-800 border-2 border-transparent hover:border-primary-500 text-slate-900 dark:text-white rounded-xl font-bold flex items-center justify-center gap-2 transition-all">
                       Review Code <Github size={18} />
                     </a>
                   </div>
@@ -291,7 +291,7 @@ const ArrowUpRightIcon = () => (
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className="text-slate-400 group-hover:text-indigo-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
+    className="text-slate-400 group-hover:text-primary-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
   >
     <line x1="7" y1="17" x2="17" y2="7"></line>
     <polyline points="7 7 17 7 17 17"></polyline>

@@ -9,7 +9,7 @@ import SplashScreen from './components/SplashScreen';
 import Certifications from './components/Certifications';
 
 import AIChat from './components/AIChat';
-import { ThemeProvider } from './components/theme-provider';
+import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -17,7 +17,7 @@ function App() {
   if (loading) return <SplashScreen onComplete={() => setLoading(false)} />;
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem storageKey="portfolio-theme">
+    <ThemeProvider>
       <div className="min-h-screen transition-colors duration-300 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white">
         <Navbar />
         <Hero />
