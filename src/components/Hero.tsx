@@ -3,6 +3,7 @@ import { motion, type Variants } from 'framer-motion';
 import { ArrowRight, Download, Github, Linkedin } from 'lucide-react';
 import { HERO_DATA } from '../constants.ts';
 import resumePdf from '../assets/Resume.pdf';
+import Typewriter from './Typewriter';
 
 // Custom LeetCode Icon
 const LeetCodeIcon = ({ size = 24 }: { size?: number }) => (
@@ -97,21 +98,22 @@ const Hero: React.FC = () => {
               </span>
             </motion.div>
 
-            <div className="space-y-4 relative z-20">
+
+            <div className="space-y-6 relative z-20">
               <motion.h1
                 variants={fadeInUp}
-                className="text-5xl md:text-7xl font-bold tracking-tight text-black dark:text-white leading-tight"
+                className="text-5xl md:text-7xl font-bold font-heading tracking-tight text-black dark:text-white leading-[1.1]"
               >
                 Hi, I'm <br />
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-purple-600 dark:from-primary-400 dark:to-purple-500 animate-gradient-x">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 animate-gradient-x">
                   {HERO_DATA.name}
                 </span>
               </motion.h1>
               <motion.p
                 variants={fadeInUp}
-                className="text-xl md:text-2xl text-gray-700 dark:text-slate-300 font-light max-w-2xl"
+                className="text-2xl md:text-3xl text-gray-700 dark:text-slate-300 font-light font-heading max-w-2xl"
               >
-                {HERO_DATA.title}
+                <Typewriter text={HERO_DATA.title} speed={100} delay={1000} />
               </motion.p>
             </div>
 

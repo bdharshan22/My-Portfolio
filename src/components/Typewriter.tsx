@@ -6,32 +6,36 @@ interface TypewriterProps {
     delay?: number;
 }
 
-const Typewriter: React.FC<TypewriterProps> = ({ text, speed = 20, delay = 0 }) => {
+const Typewriter: React.FC<TypewriterProps> = ({ text, speed = 100, delay = 0 }) => {
     const [displayedText, setDisplayedText] = useState('');
+    const [isStarted, setIsStarted] = useState(false);
 
     useEffect(() => {
         setDisplayedText('');
+        setIsStarted(false);
 
         const timeoutId = setTimeout(() => {
-            // Split by words/spaces but keep delimiters to preserve formatting
-            // Using regex to split by space but capturing the delimiter so we don't lose newlines effectively
-            const chunks = text.split(/(\S+\s*)/).filter(Boolean);
-            let currentIndex = 0;
-
-            const intervalId = setInterval(() => {
-                if (currentIndex < chunks.length) {
-                    setDisplayedText((prev) => prev + chunks[currentIndex]);
-                    currentIndex++;
-                } else {
-                    clearInterval(intervalId);
-                }
-            }, speed);
-
-            return () => clearInterval(intervalId);
+            setIsStarted(true);
         }, delay);
 
         return () => clearTimeout(timeoutId);
-    }, [text, speed, delay]);
+    }, [text, delay]);
+
+    useEffect(() => {
+        if (!isStarted) return;
+
+        let currentIndex = 0;
+        const intervalId = setInterval(() => {
+            if (currentIndex < text.length) {
+                setDisplayedText(text.slice(0, currentIndex + 1));
+                currentIndex++;
+            } else {
+                clearInterval(intervalId);
+            }
+        }, speed);
+
+        return () => clearInterval(intervalId);
+    }, [text, speed, isStarted]);
 
     return <span>{displayedText}</span>;
 };

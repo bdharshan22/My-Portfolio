@@ -8,6 +8,10 @@ export default {
     ],
     theme: {
         extend: {
+            fontFamily: {
+                sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                heading: ['"Outfit"', 'sans-serif'],
+            },
             animation: {
                 blob: "blob 7s infinite",
                 "gradient-x": "gradient-x 15s ease infinite",

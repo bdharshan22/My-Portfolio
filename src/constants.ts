@@ -2,7 +2,7 @@
 export const HERO_DATA = {
     name: "Dharshan B",
     title: "Full Stack Developer",
-    intro: "I build pixel-perfect, engaging, and accessible digital experiences.",
+    intro: "Building (and occasionally designing) scalable and user-focused web applications. Currently, I’m focused on creating accessible, innovative, and high-performance digital experiences",
 };
 
 export const ABOUT_DATA = {
