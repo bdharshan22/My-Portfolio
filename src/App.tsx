@@ -2,6 +2,7 @@ import { useState, Suspense, lazy } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import SplashScreen from './components/SplashScreen';
+import SEO from './components/SEO';
 import { ThemeProvider } from './context/ThemeProvider';
 
 const About = lazy(() => import('./components/About.tsx'));
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <ThemeProvider>
+      <SEO />
       <div className="min-h-screen transition-colors duration-300 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white">
         <Navbar />
         <Hero />
