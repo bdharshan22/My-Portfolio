@@ -1,31 +1,9 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, ExternalLink, BadgeCheck, Sparkles, ShieldCheck, Trophy } from 'lucide-react';
 import { CERTIFICATIONS_DATA } from '../constants.ts';
 
 const Certifications: React.FC = () => {
-    const scrollRef = useRef<HTMLDivElement | null>(null);
-    const [isPaused, setIsPaused] = React.useState(false);
-
-    useEffect(() => {
-        const scrollContainer = scrollRef.current;
-        if (!scrollContainer) return;
-
-        let animationFrameId: number;
-
-        const scroll = () => {
-            if (!isPaused && scrollContainer) {
-                // Adjust speed here (e.g., 1 for normal, 2 for fast)
-                scrollContainer.scrollLeft += 1;
-            }
-            animationFrameId = requestAnimationFrame(scroll);
-        };
-
-        animationFrameId = requestAnimationFrame(scroll);
-
-        return () => cancelAnimationFrame(animationFrameId);
-    }, [isPaused]);
-
     return (
         <section id="certifications" className="relative py-24 bg-slate-50 dark:bg-slate-950 overflow-hidden">
             <div className="flex flex-col items-center justify-center container mx-auto">
@@ -45,19 +23,18 @@ const Certifications: React.FC = () => {
                     </p>
                 </div>
 
-                {/* Horizontal Card Track */}
-                <div
-                    ref={scrollRef}
-                    className="flex gap-8 px-6 sm:px-24 items-center w-full overflow-x-auto scrollbar-hide no-scrollbar"
-                    onMouseEnter={() => setIsPaused(true)}
-                    onMouseLeave={() => setIsPaused(false)}
-                    onTouchStart={() => setIsPaused(true)}
-                    onTouchEnd={() => setIsPaused(false)}
-                    style={{ scrollBehavior: 'auto' }} // Ensure immediate update for loop reset
-                >
-                    {CERTIFICATIONS_DATA.map((cert, index) => (
-                        <CertificationCard key={cert.id} cert={cert} index={index} />
-                    ))}
+                {/* Horizontal Marquee Container */}
+                <div className="relative w-full overflow-hidden mask-linear-gradient">
+                    <div className="flex w-max gap-8 animate-scroll hover:pause">
+                        {/* First set of items */}
+                        {CERTIFICATIONS_DATA.map((cert, index) => (
+                            <CertificationCard key={`org-${cert.id}`} cert={cert} index={index} />
+                        ))}
+                        {/* Duplicate set for seamless looping */}
+                        {CERTIFICATIONS_DATA.map((cert, index) => (
+                            <CertificationCard key={`dup-${cert.id}`} cert={cert} index={index} />
+                        ))}
+                    </div>
                 </div>
 
             </div>
