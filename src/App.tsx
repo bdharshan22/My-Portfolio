@@ -3,7 +3,6 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import SplashScreen from './components/SplashScreen';
 import { ThemeProvider } from './context/ThemeProvider';
-import SEO from './components/SEO';
 
 const About = lazy(() => import('./components/About.tsx'));
 const Skills = lazy(() => import('./components/Skills.tsx'));
@@ -19,7 +18,6 @@ function App() {
 
   return (
     <ThemeProvider>
-      <SEO />
       <div className="min-h-screen transition-colors duration-300 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white">
         <Navbar />
         <Hero />

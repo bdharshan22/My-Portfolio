@@ -19,12 +19,6 @@
     "react-icon-cloud": "^4.1.7",
     "simple-icons": "^16.6.0"
   },
-  "overrides": {
-    "react-helmet-async": {
-      "react": "$react",
-      "react-dom": "$react-dom"
-    }
-  },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@tailwindcss/postcss": "^4.1.18",
