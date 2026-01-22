@@ -17,12 +17,6 @@ const Certifications: React.FC = () => {
             if (!isPaused && scrollContainer) {
                 // Adjust speed here (e.g., 1 for normal, 2 for fast)
                 scrollContainer.scrollLeft += 1;
-
-                // Reset scroll when we've scrolled past the first set of items
-                // This assumes smooth infinite scroll with duplicated content
-                if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
-                    scrollContainer.scrollLeft = 0;
-                }
             }
             animationFrameId = requestAnimationFrame(scroll);
         };
@@ -61,8 +55,8 @@ const Certifications: React.FC = () => {
                     onTouchEnd={() => setIsPaused(false)}
                     style={{ scrollBehavior: 'auto' }} // Ensure immediate update for loop reset
                 >
-                    {[...CERTIFICATIONS_DATA, ...CERTIFICATIONS_DATA].map((cert, index) => (
-                        <CertificationCard key={`${cert.id}-${index}`} cert={cert} index={index} />
+                    {CERTIFICATIONS_DATA.map((cert, index) => (
+                        <CertificationCard key={cert.id} cert={cert} index={index} />
                     ))}
                 </div>
 
