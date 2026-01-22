@@ -7,8 +7,7 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import SplashScreen from './components/SplashScreen';
 import Certifications from './components/Certifications';
-
-
+import Footer from './components/Footer';
 import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
@@ -25,9 +24,8 @@ function App() {
         <Skills />
         <Projects />
         <Certifications />
-
         <Contact />
-
+        <Footer />
       </div>
     </ThemeProvider>
   );

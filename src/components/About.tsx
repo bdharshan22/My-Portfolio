@@ -5,7 +5,7 @@ import { ABOUT_DATA } from '../constants.ts';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-32 bg-slate-50 dark:bg-slate-950 relative overflow-hidden">
+    <section id="about" className="py-24 bg-slate-50 dark:bg-slate-950 relative overflow-hidden">
       {/* Background Decorations */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
@@ -82,12 +82,12 @@ const About: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="flex items-center gap-2 mb-4">
-              <Terminal size={20} className="text-indigo-500" />
-              <span className="text-indigo-500 font-bold tracking-wider uppercase text-sm">About Me</span>
+            <div className="flex items-center gap-3 mb-4">
+              <Terminal size={28} className="text-indigo-500" />
+              <span className="text-indigo-500 font-bold tracking-wider uppercase text-xl">About Me</span>
             </div>
 
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-white leading-tight">
+            <h2 className="text-2xl md:text-4xl font-bold mb-6 text-slate-900 dark:text-white leading-tight">
               Building digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500">solutions</span> that matter.
             </h2>
 

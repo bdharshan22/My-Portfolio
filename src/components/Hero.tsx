@@ -152,7 +152,7 @@ const Hero: React.FC = () => {
             variants={imageVariants}
             initial="hidden"
             animate="visible"
-            className="hidden lg:block relative"
+            className="block relative mt-12 lg:mt-0"
           >
             <motion.div
               animate={floatAnimation}
@@ -166,7 +166,7 @@ const Hero: React.FC = () => {
                 <div className="relative w-full h-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800">
                   <img
                     src="/images/avatar.png"
-                    alt="Cyberpunk Tech"
+                    alt="Dharshan B"
                     className="w-full h-full object-cover shadow-lg opacity-90"
                   />
                   {/* Tech Overlay Lines */}
@@ -180,7 +180,7 @@ const Hero: React.FC = () => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.9 }}
-                  className="absolute -bottom-8 right-12 bg-white dark:bg-slate-800 px-4 py-2 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 flex items-center gap-2"
+                  className="absolute -top-6 right-12 bg-white dark:bg-slate-800 px-4 py-2 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 flex items-center gap-2"
                 >
                   <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                   <span className="text-sm font-mono text-slate-600 dark:text-slate-300">System.Online</span>

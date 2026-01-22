@@ -6,74 +6,71 @@ export const HERO_DATA = {
 };
 
 export const ABOUT_DATA = {
-    summary: "I am a passionate developer with expertise in building modern web applications.",
-    description: "I am a passionate developer with expertise in building modern web applications."
+    summary: "I'm an IT undergraduate and Full Stack Developer dedicated to building (and occasionally designing) scalable, user-focused web applications.",
+    description: "Currently, I’m focused on creating accessible, innovative, and high-performance digital experiences. I specialize in crafting applications that not only look great but perform flawlessly. My journey is driven by a constant curiosity and a desire to solve complex problems through clean, efficient code."
 }
 
-export const EXPERIENCE_DATA = [
-    {
-        id: "1",
-        role: "Senior Frontend Engineer",
-        company: "Tech Corp",
-        period: "2023 - Present",
-        description: "Leading frontend initiatives.",
-        summary: "Specialized in React architecture.",
-        techStack: ["React", "TypeScript", "Tailwind"]
-    }
-];
+
 
 
 
 export const CERTIFICATIONS_DATA = [
     {
         id: "1",
-        name: "AWS Certified Practitioner",
-        issuer: "Amazon Web Services",
-        date: "2024",
-        credentialUrl: "#"
+        name: "Introduction to Cyber Security",
+        issuer: "Cisco",
+        date: "2026",
+        credentialUrl: "https://www.credly.com/earner/earned/badge/f970e4ed-f04d-4570-a4ba-666d4bd55ef7"
     },
     {
         id: "2",
         name: "Meta Frontend Developer",
         issuer: "Coursera / Meta",
-        date: "2023",
+        date: "Ongoing",
         credentialUrl: "#"
     },
     {
         id: "3",
-        name: "Professional Cloud Architect",
-        issuer: "Google Cloud",
-        date: "2023",
+        name: "Software Engineering Virtual Experience",
+        issuer: "JP Morgan and Chase via Forage",
+        date: "Completed",
         credentialUrl: "#"
+    },
+    {
+        id: "4",
+        name: "Microsoft Azure AI Essentials",
+        issuer: "Microsoft & LinkedIn Learning",
+        date: "2025",
+        credentialUrl: "https://www.linkedin.com/learning/certificates/6a95d60dab231818b85157866be5fb9da8ab1b4ce8b3e13218a2a83d000f1c3c?trk=share_certificate"
     }
 ];
 
 export const PROJECTS_DATA = [
     {
         id: "1",
-        title: "E-Commerce Platform",
-        description: "A comprehensive online shopping solution.",
-        fullDescription: "Built a scalable e-commerce platform with real-time inventory management, secure payments, and an intuitive user interface.",
+        title: "Web Application For Domestic Services",
+        description: "A platform connecting users with local service providers.",
+        fullDescription: "A comprehensive web application designed to bridge the gap between service seekers and domestic workers, facilitating easy booking and management of household services.",
         status: "Completed",
         tags: ["React", "Node.js", "MongoDB"],
-        techStack: ["React", "Redux", "Node.js", "Express", "MongoDB", "Stripe"],
-        image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80",
-        features: ["User Authentication", "Product Search", "Shopping Cart", "Payment Gateway"],
-        liveUrl: "#",
-        githubUrl: "#",
-        link: "#", // Keep for compatibility if needed or remove
+        techStack: ["React", "Tailwind", "MongoDB", "Node.js", "JavaScript"],
+        image: "/images/Dom-Services.png",
+        features: ["Service Booking", "Provider Profiles", "Real-time Tracking", "Secure Payments"],
+        liveUrl: "https://domestic-services-vt.vercel.app/",
+        githubUrl: "https://github.com/bdharshan22/Dom-Services",
+        link: "#",
         github: "#"
     },
     {
         id: "2",
-        title: "Task Management App",
-        description: "Smart task organization tool.",
-        fullDescription: "A collaborative task management application enabling teams to organize, track, and prioritize work efficiently.",
-        status: "In Progress",
+        title: "Gear Galaxy E-commerce Platform",
+        description: "A futuristic online shopping experience.",
+        fullDescription: "A robust e-commerce platform featuring a modern UI, real-time inventory management, and secure checkout, tailored for tech enthusiasts.",
+        status: "On Progress",
         tags: ["TypeScript", "Next.js", "Tailwind"],
-        techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL"],
-        image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80",
-        features: ["Kanban Board", "Real-time Updates", "Team Collaboration"],
+        techStack: ["Next.js", "Tailwind", "Shadcn UI", "Framer Motion", "Supabase", "TypeScript"],
+        image: "/images/Gear-Gal.png",
+        features: ["Product Filtering", "Cart Management", "User Reviews", "Admin Dashboard"],
         liveUrl: "#",
         githubUrl: "#",
         link: "#",
@@ -81,14 +78,14 @@ export const PROJECTS_DATA = [
     },
     {
         id: "3",
-        title: "AI Analytics Dashboard",
-        description: "Data visualization and insights platform.",
-        fullDescription: "An intelligent dashboard that processes large datasets to provide actionable insights through interactive visualizations and predictive modeling.",
-        status: "Beta",
-        tags: ["Python", "React", "FastAPI"],
-        techStack: ["React", "FastAPI", "Python", "D3.js", "Docker"],
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-        features: ["Predictive Analytics", "Interactive Charts", "Real-time Data Processing", "Exportable Reports"],
+        title: "Skycam Photography",
+        description: "Portfolio and booking site for aerial photography.",
+        fullDescription: "A visually stunning showcase for aerial photography services, including gallery management and client booking systems.",
+        status: "On Progress",
+        tags: ["React", "Framer Motion", "Firebase"],
+        techStack: ["Next.js", "Tailwind", "Three.js", "Shadcn UI", "Framer Motion", "TypeScript"],
+        image: "/images/Skycam.png",
+        features: ["Interactive Gallery", "Service Booking", "Client Reviews", "Admin Portal"],
         liveUrl: "#",
         githubUrl: "#",
         link: "#",
@@ -96,16 +93,16 @@ export const PROJECTS_DATA = [
     },
     {
         id: "4",
-        title: "Social Connect App",
-        description: "Modern social networking platform.",
-        fullDescription: "A feature-rich social media application focusing on privacy and real-time connections, featuring stories, messaging, and group interactions.",
-        status: "Concept",
-        tags: ["React Native", "Firebase", "Redux"],
-        techStack: ["React Native", "Firebase", "Redux Toolkit", "TypeScript", "Node.js"],
-        image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
-        features: ["Real-time Messaging", "Stories", "Group Chats", "Media Sharing"],
+        title: "Portfolio",
+        description: "Modern personal portfolio website.",
+        fullDescription: "A responsive and interactive portfolio website designed to showcase my projects, skills, and professional journey.",
+        status: "Completed",
+        tags: ["React", "TypeScript", "Tailwind"],
+        techStack: ["Next.js", "Tailwind CSS", "TypeScript"],
+        image: "/images/Portfolio.png",
+        features: ["Responsive Design", "Dark Mode", "Interactive UI", "Contact Form"],
         liveUrl: "#",
-        githubUrl: "#",
+        githubUrl: "https://github.com/bdharshan22/My-Portfolio",
         link: "#",
         github: "#"
     }
@@ -152,7 +149,6 @@ export const SKILLS_DATA = [
 
 export const CONTACT_DATA = {
     email: "dharshancgm2005@gmail.com",
-    phone: "+1234567890",
     social: {
         github: "https://github.com/bdharshan22",
         linkedin: "https://www.linkedin.com/in/dharshanb22"

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import {
   motion,
   AnimatePresence,
@@ -35,7 +35,6 @@ interface NavItemsProps {
 }
 
 export const NavbarContainer = ({ children, className }: NavbarContainerProps) => {
-  const ref = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
   const [visible, setVisible] = useState<boolean>(false);
 
@@ -49,7 +48,6 @@ export const NavbarContainer = ({ children, className }: NavbarContainerProps) =
 
   return (
     <motion.div
-      ref={ref}
       // Fixed at top, no movement
       className={cn(
         "fixed inset-x-0 z-50 w-full top-0 transition-all duration-300",
@@ -148,7 +146,7 @@ export const NavbarLogo = () => {
 
 
 const navItems = [
-  { name: "Home", link: "#hero", icon: <Home size={20} /> },
+  { name: "Home", link: "#home", icon: <Home size={20} /> },
   { name: "About", link: "#about", icon: <User size={20} /> },
   { name: "Skills", link: "#skills", icon: <Code size={20} /> }, // Added Skills link
   { name: "Projects", link: "#projects", icon: <Briefcase size={20} /> },
