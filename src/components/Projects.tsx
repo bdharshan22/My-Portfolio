@@ -59,6 +59,7 @@ const Projects: React.FC = () => {
                                         src={project.image}
                                         alt={project.title}
                                         className="w-full h-full object-cover"
+                                        loading="lazy"
                                     />
                                     {/* Dark Overlay for Readability */}
                                     <div className={`absolute inset-0 bg-slate-900/40 backdrop-blur-[2px] transition-opacity duration-300 ${isActive ? 'bg-slate-900/60' : 'bg-slate-900/30'}`} />
@@ -69,8 +70,8 @@ const Projects: React.FC = () => {
 
                                     <div className="flex items-center gap-3 mb-2">
                                         <span className={`inline-block px-2 py-1 backdrop-blur-md rounded text-xs font-mono uppercase tracking-wider border ${project.status === 'Completed'
-                                                ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
-                                                : 'bg-amber-500/20 text-amber-300 border-amber-500/30'
+                                            ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
+                                            : 'bg-amber-500/20 text-amber-300 border-amber-500/30'
                                             }`}>
                                             {project.status}
                                         </span>
