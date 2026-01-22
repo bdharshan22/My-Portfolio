@@ -6,7 +6,7 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 
-import { X, Menu, Home, User, Briefcase, Code, Mail } from "lucide-react";
+import { X, Menu, Home, User, Briefcase, Code, Mail, Award } from "lucide-react";
 
 
 // Utility for class merging (simple version)
@@ -150,6 +150,7 @@ const navItems = [
   { name: "About", link: "#about", icon: <User size={20} /> },
   { name: "Skills", link: "#skills", icon: <Code size={20} /> }, // Added Skills link
   { name: "Projects", link: "#projects", icon: <Briefcase size={20} /> },
+  { name: "Certifications", link: "#certifications", icon: <Award size={20} /> },
   { name: "Contact", link: "#contact", icon: <Mail size={20} /> },
 ];
 
