@@ -123,7 +123,7 @@ export const NavItems = ({
   );
 };
 
-export const MobileNav = ({ children }: any) => {
+export const MobileNav = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="lg:hidden">{children}</div>
   );

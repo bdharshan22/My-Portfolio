@@ -81,23 +81,12 @@ const Hero: React.FC = () => {
           {/* LEFT COLUMN: Text Content */}
           <motion.div
             variants={containerVariants}
-              initial={false}
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
+            initial={false}
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-8"
           >
-            <motion.div
-              variants={fadeInUp}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 backdrop-blur-sm"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wide">
-                Available for new projects
-              </span>
-            </motion.div>
+
 
 
             <div className="space-y-6 relative z-20">
@@ -151,9 +140,9 @@ const Hero: React.FC = () => {
           {/* RIGHT COLUMN: Animated Image */}
           <motion.div
             variants={imageVariants}
-              initial={false}
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
+            initial={false}
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
             className="block relative mt-12 lg:mt-0"
           >
             <motion.div

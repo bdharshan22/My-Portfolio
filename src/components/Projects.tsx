@@ -31,7 +31,7 @@ const Projects: React.FC = () => {
                 {/* 3D Carousel Container */}
                 <div className="relative h-112.5 md:h-125 flex items-center justify-center perspective-1000">
                     {PROJECTS_DATA.map((project, index) => {
-                        let offset = index - activeIndex;
+                        const offset = index - activeIndex;
                         const isActive = index === activeIndex;
 
                         return (

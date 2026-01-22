@@ -16,8 +16,8 @@ const Certifications: React.FC = () => {
     }, [controls]);
 
     return (
-        <section ref={targetRef} id="certifications" className="relative h-[300vh] bg-slate-50 dark:bg-slate-950">
-            <div className="sticky top-0 flex h-screen flex-col items-center justify-center overflow-hidden py-10">
+        <section ref={targetRef} id="certifications" className="relative py-24 bg-slate-50 dark:bg-slate-950 overflow-hidden">
+            <div className="flex flex-col items-center justify-center container mx-auto">
 
                 {/* Header Section */}
                 <div className="max-w-4xl text-center mb-12 px-6 z-10">
@@ -46,7 +46,15 @@ const Certifications: React.FC = () => {
     );
 };
 
-const CertificationCard = ({ cert, index }: { cert: any, index: number }) => {
+interface Certification {
+    id: string;
+    name: string;
+    issuer: string;
+    date: string;
+    credentialUrl: string;
+}
+
+const CertificationCard = ({ cert, index }: { cert: Certification, index: number }) => {
     return (
         <div
             className="relative group w-[75vw] md:w-87.5 h-[45vh] md:h-80 shrink-0"
@@ -88,10 +96,10 @@ const CertificationCard = ({ cert, index }: { cert: any, index: number }) => {
                         <Trophy size={14} /> {cert.date === 'Ongoing' ? 'Status' : 'Issued'}
                     </span>
                     <span className={`font-bold px-4 py-1.5 rounded-full text-sm ${cert.date === 'Ongoing'
-                            ? 'bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400'
-                            : cert.date === 'Completed'
-                                ? 'bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400'
-                                : 'text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800'
+                        ? 'bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400'
+                        : cert.date === 'Completed'
+                            ? 'bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400'
+                            : 'text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800'
                         }`}>
                         {cert.date}
                     </span>

@@ -54,7 +54,7 @@ interface TechGlobeProps {
 }
 
 const TechGlobe: React.FC<TechGlobeProps> = ({ onIconClick }) => {
-    const [icons, setIcons] = useState<any[] | null>(null);
+    const [icons, setIcons] = useState<React.ReactNode[] | null>(null);
 
     useEffect(() => {
         fetchSimpleIcons({ slugs }).then(({ simpleIcons }) => {
@@ -69,7 +69,7 @@ const TechGlobe: React.FC<TechGlobeProps> = ({ onIconClick }) => {
                         href: undefined,
                         target: undefined,
                         rel: undefined,
-                        onClick: (e: any) => {
+                        onClick: (e: React.MouseEvent) => {
                             e.preventDefault();
                             if (onIconClick) onIconClick(icon);
                         },

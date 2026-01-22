@@ -17,7 +17,7 @@ export const StickyScroll = ({
     contentClassName?: string;
 }) => {
     const [activeCard, setActiveCard] = React.useState(0);
-    const ref = useRef<any>(null);
+    const ref = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         // target: ref,
         container: ref,
@@ -66,10 +66,10 @@ export const StickyScroll = ({
                     {content.map((item, index) => (
                         <div key={item.title + index} className="my-20">
                             <motion.h2
-                                        initial={false}
-                                        animate={{ opacity: activeCard === index ? 1 : 0.3 }}
-                                        className="text-2xl font-bold text-slate-100"
-                                    >
+                                initial={false}
+                                animate={{ opacity: activeCard === index ? 1 : 0.3 }}
+                                className="text-2xl font-bold text-slate-100"
+                            >
                                 {item.title}
                             </motion.h2>
                             <motion.div
