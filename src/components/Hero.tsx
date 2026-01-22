@@ -107,12 +107,11 @@ const Hero: React.FC = () => {
               </motion.p>
             </div>
 
-            <motion.p
-              variants={fadeInUp}
+            <p
               className="text-slate-600 dark:text-slate-400 leading-relaxed max-w-lg text-lg"
             >
               {HERO_DATA.intro}
-            </motion.p>
+            </p>
 
             <motion.div
               variants={fadeInUp}
