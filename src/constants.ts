@@ -98,7 +98,7 @@ export const PROJECTS_DATA = [
         fullDescription: "A responsive and interactive portfolio website designed to showcase my projects, skills, and professional journey.",
         status: "Completed",
         tags: ["React", "TypeScript", "Tailwind"],
-        techStack: ["Next.js", "Tailwind CSS", "TypeScript"],
+        techStack: ["React.js", "Tailwind CSS", "TypeScript"],
         image: "/images/Portfolio.png",
         features: ["Responsive Design", "Dark Mode", "Interactive UI", "Contact Form"],
         liveUrl: "#",
