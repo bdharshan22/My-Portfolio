@@ -14,8 +14,8 @@ const Skills: React.FC = () => {
   return (
     <section id="skills" className="py-24 bg-slate-50 dark:bg-slate-950 relative overflow-hidden min-h-screen flex flex-col items-center justify-center">
       {/* Ambient Background Glows */}
-      <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[10%] left-[-10%] w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-[20%] right-[-10%] w-125 h-125 bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[10%] left-[-10%] w-150 h-150 bg-purple-500/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
         {/* Header - blurred when overlay is active */}
@@ -33,7 +33,7 @@ const Skills: React.FC = () => {
               <Cpu size={12} /> Tech Ecosystem
             </div>
             <h2 className="text-4xl md:text-6xl font-black text-slate-900 dark:text-white mb-6 tracking-tight">
-              Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">Sphere</span>
+              Technical <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">Sphere</span>
             </h2>
             <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
               The diverse constellation of technologies I leverage to build digital experiences. Interact with the globe to explore.

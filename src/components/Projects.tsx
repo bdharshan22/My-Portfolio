@@ -21,7 +21,7 @@ const Projects: React.FC = () => {
                 {/* Title Section */}
                 <div className="max-w-4xl mx-auto text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-white leading-tight">
-                        Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-indigo-600">Works</span>
+                        Featured <span className="text-transparent bg-clip-text bg-linear-to-r from-primary-600 to-indigo-600">Works</span>
                     </h2>
                     <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
                         Interact with the flow to explore my digital portfolio.
@@ -29,7 +29,7 @@ const Projects: React.FC = () => {
                 </div>
 
                 {/* 3D Carousel Container */}
-                <div className="relative h-[450px] md:h-[500px] flex items-center justify-center perspective-1000">
+                <div className="relative h-112.5 md:h-125 flex items-center justify-center perspective-1000">
                     {PROJECTS_DATA.map((project, index) => {
                         let offset = index - activeIndex;
                         const isActive = index === activeIndex;
@@ -37,7 +37,7 @@ const Projects: React.FC = () => {
                         return (
                             <motion.div
                                 key={project.id}
-                                className={`absolute w-[85vw] md:w-[600px] h-[55vh] md:h-[400px] bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-700 cursor-pointer transition-shadow duration-300 ${isActive ? 'shadow-primary-500/20 z-10' : 'hover:brightness-110'}`}
+                                className={`absolute w-[85vw] md:w-150 h-[55vh] md:h-100 bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-700 cursor-pointer transition-shadow duration-300 ${isActive ? 'shadow-primary-500/20 z-10' : 'hover:brightness-110'}`}
                                 onClick={() => setActiveIndex(index)}
                                 animate={{
                                     rotateY: offset * 45,

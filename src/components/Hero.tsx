@@ -70,7 +70,7 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Grid Pattern */}
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
-        <div className="absolute inset-0 bg-grid-slate-200/[0.04] bg-[bottom_1px_center] dark:bg-grid-slate-700/[0.05]"
+        <div className="absolute inset-0 bg-grid-slate-200/[0.04] bg-position-[bottom_1px_center] dark:bg-grid-slate-700/[0.05]"
           style={{ maskImage: 'linear-gradient(to bottom, transparent, black)' }}
         />
       </div>
@@ -81,8 +81,9 @@ const Hero: React.FC = () => {
           {/* LEFT COLUMN: Text Content */}
           <motion.div
             variants={containerVariants}
-            initial="hidden"
-            animate="visible"
+              initial={false}
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
             className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-8"
           >
             <motion.div
@@ -105,7 +106,7 @@ const Hero: React.FC = () => {
                 className="text-5xl md:text-7xl font-bold font-heading tracking-tight text-black dark:text-white leading-[1.1]"
               >
                 Hi, I'm <br />
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 animate-gradient-x">
+                <span className="bg-clip-text text-transparent bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 animate-gradient-x">
                   {HERO_DATA.name}
                 </span>
               </motion.h1>
@@ -150,8 +151,9 @@ const Hero: React.FC = () => {
           {/* RIGHT COLUMN: Animated Image */}
           <motion.div
             variants={imageVariants}
-            initial="hidden"
-            animate="visible"
+              initial={false}
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
             className="block relative mt-12 lg:mt-0"
           >
             <motion.div
@@ -165,20 +167,31 @@ const Hero: React.FC = () => {
               <div className="relative z-10 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shadow-2xl">
                 <div className="relative w-full h-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800">
                   <img
-                    src="/images/avatar.png"
-                    alt="Dharshan B"
+                    src="/images/avatar.webp"
+                    width="200"
+                    height="200"
+                    fetchPriority="high"
+                    alt="Dharshan B profile"
                     className="w-full h-full object-cover shadow-lg opacity-90"
+                    onError={(e) => {
+                      console.warn('Hero image failed to load:', (e.currentTarget as HTMLImageElement).src);
+                      (e.currentTarget as HTMLImageElement).style.display = 'none';
+                    }}
+                    onLoad={() => {
+                      console.log('Hero image loaded successfully');
+                    }}
                   />
                   {/* Tech Overlay Lines */}
-                  <div className="absolute inset-0 bg-[linear-gradient(transparent_2px,var(--theme-900)_2px)] bg-[size:100%_4px] opacity-10 pointer-events-none" />
+                  <div className="absolute inset-0 bg-[linear-gradient(transparent_2px,var(--theme-900)_2px)] bg-size-[100%_4px] opacity-10 pointer-events-none" />
                 </div>
 
 
 
 
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={false}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
                   transition={{ delay: 0.9 }}
                   className="absolute -top-6 right-12 bg-white dark:bg-slate-800 px-4 py-2 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 flex items-center gap-2"
                 >
@@ -195,8 +208,9 @@ const Hero: React.FC = () => {
 
       {/* Scroll Indicator */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        initial={false}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >

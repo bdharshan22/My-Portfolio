@@ -7,9 +7,9 @@ const About: React.FC = () => {
   return (
     <section id="about" className="py-24 bg-slate-50 dark:bg-slate-950 relative overflow-hidden">
       {/* Background Decorations */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-0 right-0 w-125 h-125 bg-indigo-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute bottom-0 left-0 w-125 h-125 bg-purple-500/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
@@ -29,7 +29,7 @@ const About: React.FC = () => {
             <FloatingIcon icon={<Coffee size={24} />} className="absolute -bottom-8 -left-4 text-cyan-400 delay-500" />
 
             {/* IDE Window */}
-            <div className="relative rounded-xl overflow-hidden bg-slate-900 border border-slate-700 shadow-2xl transform rotate-[-2deg] hover:rotate-0 transition-transform duration-500">
+            <div className="relative rounded-xl overflow-hidden bg-slate-900 border border-slate-700 shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500">
               {/* Window Header */}
               <div className="flex items-center gap-2 px-4 py-3 bg-slate-800 border-b border-slate-700">
                 <div className="flex gap-2">
@@ -72,7 +72,7 @@ const About: React.FC = () => {
             </div>
 
             {/* Back Glow */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500 to-purple-500 blur-2xl -z-10 opacity-20 transform scale-105" />
+            <div className="absolute inset-0 bg-linear-to-tr from-indigo-500 to-purple-500 blur-2xl -z-10 opacity-20 transform scale-105" />
           </motion.div>
 
           {/* Right Column: Content */}
@@ -88,7 +88,7 @@ const About: React.FC = () => {
             </div>
 
             <h2 className="text-2xl md:text-4xl font-bold mb-6 text-slate-900 dark:text-white leading-tight">
-              Building digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-500">solutions</span> that matter.
+              Building digital <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-500 to-purple-500">solutions</span> that matter.
             </h2>
 
             <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">

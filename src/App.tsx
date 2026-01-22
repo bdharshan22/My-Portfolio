@@ -4,12 +4,12 @@ import Hero from './components/Hero';
 import SplashScreen from './components/SplashScreen';
 import { ThemeProvider } from './context/ThemeContext';
 
-const About = lazy(() => import('./components/About'));
-const Skills = lazy(() => import('./components/Skills'));
-const Projects = lazy(() => import('./components/Projects'));
-const Certifications = lazy(() => import('./components/Certifications'));
-const Contact = lazy(() => import('./components/Contact'));
-const Footer = lazy(() => import('./components/Footer'));
+const About = lazy(() => import('./components/About.tsx'));
+const Skills = lazy(() => import('./components/Skills.tsx'));
+const Projects = lazy(() => import('./components/Projects.tsx'));
+const Certifications = lazy(() => import('./components/Certifications.tsx'));
+const Contact = lazy(() => import('./components/Contact.tsx'));
+const Footer = lazy(() => import('./components/Footer.tsx'));
 
 function App() {
   const [loading, setLoading] = useState(true);

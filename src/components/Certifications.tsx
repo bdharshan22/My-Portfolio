@@ -1,15 +1,19 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useRef, useEffect } from 'react';
+import { motion, useAnimation } from 'framer-motion';
 import { Award, ExternalLink, BadgeCheck, Sparkles, ShieldCheck, Trophy } from 'lucide-react';
 import { CERTIFICATIONS_DATA } from '../constants.ts';
 
 const Certifications: React.FC = () => {
     const targetRef = useRef<HTMLDivElement | null>(null);
-    const { scrollYProgress } = useScroll({
-        target: targetRef,
-    });
+    const controls = useAnimation();
 
-    const x = useTransform(scrollYProgress, [0, 1], ["1%", "-50%"]); // Less aggressive scroll for fewer/smaller items
+    useEffect(() => {
+        // Auto-scroll the horizontal track from 0% to -50% continuously
+        controls.start({
+            x: ["0%", "-50%"],
+            transition: { duration: 30, ease: "linear", repeat: Infinity }
+        });
+    }, [controls]);
 
     return (
         <section ref={targetRef} id="certifications" className="relative h-[300vh] bg-slate-50 dark:bg-slate-950">
@@ -23,7 +27,7 @@ const Certifications: React.FC = () => {
                         <span className="h-px w-8 bg-indigo-500"></span>
                     </div>
                     <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-white leading-tight">
-                        Certification and <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-indigo-600">Achievements</span>
+                        Certification and <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-500 to-indigo-600">Achievements</span>
                     </h2>
                     <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
                         Professional credentials that validate technical proficiency and commitment to continuous learning.
@@ -31,7 +35,7 @@ const Certifications: React.FC = () => {
                 </div>
 
                 {/* Horizontal Card Track */}
-                <motion.div style={{ x }} className="flex gap-8 px-6 sm:px-24 items-center w-full">
+                <motion.div initial={{ x: "0%" }} animate={controls} className="flex gap-8 px-6 sm:px-24 items-center w-full">
                     {CERTIFICATIONS_DATA.map((cert, index) => (
                         <CertificationCard key={cert.id} cert={cert} index={index} />
                     ))}
@@ -45,13 +49,13 @@ const Certifications: React.FC = () => {
 const CertificationCard = ({ cert, index }: { cert: any, index: number }) => {
     return (
         <div
-            className="relative group w-[75vw] md:w-[350px] h-[45vh] md:h-[320px] flex-shrink-0"
+            className="relative group w-[75vw] md:w-87.5 h-[45vh] md:h-80 shrink-0"
         >
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 via-indigo-500 to-purple-500 rounded-2xl opacity-0 group-hover:opacity-75 blur transition duration-500"></div>
+            <div className="absolute -inset-0.5 bg-linear-to-r from-cyan-500 via-indigo-500 to-purple-500 rounded-2xl opacity-0 group-hover:opacity-75 blur transition duration-500"></div>
 
             <div className="relative h-full bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-xl flex flex-col overflow-hidden">
                 {/* Shiny Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent dark:from-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                <div className="absolute inset-0 bg-linear-to-tr from-white/20 to-transparent dark:from-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
                 <div className="flex justify-between items-start mb-8">
                     <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-2xl group-hover:bg-indigo-50 dark:group-hover:bg-indigo-900/20 transition-colors duration-300 text-indigo-500 dark:text-indigo-400 shadow-sm border border-slate-100 dark:border-slate-700">

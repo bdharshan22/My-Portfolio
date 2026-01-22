@@ -42,32 +42,20 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
       {!isLoaded && (
         <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-950 overflow-hidden text-white">
           {/* Background Grid Effect */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,black,transparent)] pointer-events-none" />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-size-[50px_50px] mask-[radial-gradient(ellipse_60%_60%_at_50%_50%,black,transparent)] pointer-events-none" />
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.5, filter: "blur(10px)" }}
-            transition={{ duration: 0.5 }}
-            className="relative z-10 flex flex-col items-center gap-6"
-          >
+          <div className="relative z-10 flex flex-col items-center gap-6">
             {/* Glitch/Tech Text */}
             <div className="relative">
-              <motion.h1
-                key={currentWordIndex}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                className="text-6xl md:text-8xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500"
-              >
+              <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-transparent bg-clip-text bg-linear-to-r from-indigo-500 via-purple-500 to-cyan-500">
                 {techKeywords[currentWordIndex]}
-              </motion.h1>
+              </h1>
               <div className="absolute -inset-1 bg-indigo-500/20 blur-xl opacity-50 animate-pulse" />
             </div>
 
             {/* Loading Bar */}
             <div className="w-64 h-1 bg-slate-800 rounded-full overflow-hidden relative">
-              <motion.div
+              <div
                 className="absolute h-full bg-white shadow-[0_0_10px_2px_rgba(255,255,255,0.5)]"
                 style={{ width: `${progress}%` }}
               />
@@ -76,7 +64,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
             <div className="text-xs font-mono text-slate-500 tracking-[0.2em]">
               INITIALIZING // {progress}%
             </div>
-          </motion.div>
+          </div>
         </div>
       )}
     </AnimatePresence>

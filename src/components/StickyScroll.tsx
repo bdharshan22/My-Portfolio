@@ -58,7 +58,7 @@ export const StickyScroll = ({
             animate={{
                 backgroundColor: backgroundColors[activeCard % backgroundColors.length],
             }}
-            className="h-[30rem] overflow-y-auto flex justify-center relative space-x-10 rounded-md p-10 scrollbar-hide w-full"
+            className="h-120 overflow-y-auto flex justify-center relative space-x-10 rounded-md p-10 scrollbar-hide w-full"
             ref={ref}
         >
             <div className="div relative flex items-start px-4">
@@ -66,14 +66,14 @@ export const StickyScroll = ({
                     {content.map((item, index) => (
                         <div key={item.title + index} className="my-20">
                             <motion.h2
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: activeCard === index ? 1 : 0.3 }}
-                                className="text-2xl font-bold text-slate-100"
-                            >
+                                        initial={false}
+                                        animate={{ opacity: activeCard === index ? 1 : 0.3 }}
+                                        className="text-2xl font-bold text-slate-100"
+                                    >
                                 {item.title}
                             </motion.h2>
                             <motion.div
-                                initial={{ opacity: 0 }}
+                                initial={false}
                                 animate={{ opacity: activeCard === index ? 1 : 0.3 }}
                                 className="text-kg text-slate-300 max-w-sm mt-10"
                             >
@@ -125,6 +125,7 @@ export const StickyScroll = ({
                         src={content[activeCard].projectImage}
                         alt={content[activeCard].title}
                         className="w-full h-full object-cover"
+                        loading="lazy"
                     />
                 ) : (
                     <div className="w-full h-full flex items-center justify-center text-white font-bold text-xl p-4 text-center">
