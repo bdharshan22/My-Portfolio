@@ -11,7 +11,7 @@ const Certifications: React.FC = () => {
         // Auto-scroll the horizontal track from 0% to -50% continuously
         controls.start({
             x: ["0%", "-50%"],
-            transition: { duration: 30, ease: "linear", repeat: Infinity }
+            transition: { duration: 10, ease: "linear", repeat: Infinity }
         });
     }, [controls]);
 
@@ -36,8 +36,8 @@ const Certifications: React.FC = () => {
 
                 {/* Horizontal Card Track */}
                 <motion.div initial={{ x: "0%" }} animate={controls} className="flex gap-8 px-6 sm:px-24 items-center w-full">
-                    {CERTIFICATIONS_DATA.map((cert, index) => (
-                        <CertificationCard key={cert.id} cert={cert} index={index} />
+                    {[...CERTIFICATIONS_DATA, ...CERTIFICATIONS_DATA].map((cert, index) => (
+                        <CertificationCard key={`${cert.id}-${index}`} cert={cert} index={index} />
                     ))}
                 </motion.div>
 
