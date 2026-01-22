@@ -23,7 +23,7 @@ const Certifications: React.FC = () => {
                 <div className="max-w-4xl text-center mb-12 px-6 z-10">
                     <div className="flex items-center justify-center gap-2 mb-4">
                         <span className="h-px w-8 bg-indigo-500"></span>
-                        <span className="text-indigo-500 font-mono text-sm uppercase tracking-widest">Validation</span>
+                        <span className="text-indigo-600 dark:text-indigo-400 font-mono text-sm uppercase tracking-widest">Validation</span>
                         <span className="h-px w-8 bg-indigo-500"></span>
                     </div>
                     <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-white leading-tight">
@@ -74,7 +74,7 @@ const CertificationCard = ({ cert, index }: { cert: Certification, index: number
                             href={cert.credentialUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors p-2 hover:bg-slate-100 dark:hover:bg-slate-800/50 rounded-full"
+                            className="text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors p-2 hover:bg-slate-100 dark:hover:bg-slate-800/50 rounded-full"
                         >
                             <ExternalLink size={24} />
                         </a>
@@ -92,7 +92,7 @@ const CertificationCard = ({ cert, index }: { cert: Certification, index: number
                 </div>
 
                 <div className="mt-auto pt-6 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
-                    <span className="text-slate-400 font-mono text-xs uppercase tracking-wider flex items-center gap-2">
+                    <span className="text-slate-500 dark:text-slate-400 font-mono text-xs uppercase tracking-wider flex items-center gap-2">
                         <Trophy size={14} /> {cert.date === 'Ongoing' ? 'Status' : 'Issued'}
                     </span>
                     <span className={`font-bold px-4 py-1.5 rounded-full text-sm ${cert.date === 'Ongoing'

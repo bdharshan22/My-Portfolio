@@ -124,12 +124,14 @@ const Projects: React.FC = () => {
                     <button
                         onClick={prevProject}
                         className="p-4 rounded-full bg-slate-200 dark:bg-slate-800 hover:bg-white dark:hover:bg-slate-700 text-slate-600 dark:text-white transition-all shadow-lg hover:shadow-xl hover:scale-110 active:scale-95"
+                        aria-label="Previous project"
                     >
                         <ChevronLeft size={24} />
                     </button>
                     <button
                         onClick={nextProject}
                         className="p-4 rounded-full bg-primary-600 hover:bg-primary-500 text-white transition-all shadow-lg shadow-primary-500/30 hover:shadow-primary-500/50 hover:scale-110 active:scale-95"
+                        aria-label="Next project"
                     >
                         <ChevronRight size={24} />
                     </button>

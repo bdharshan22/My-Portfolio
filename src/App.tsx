@@ -22,13 +22,17 @@ function App() {
       <SEO />
       <div className="min-h-screen transition-colors duration-300 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white">
         <Navbar />
-        <Hero />
-        <Suspense fallback={<div className="py-20 text-center">Loading...</div>}>
-          <About />
-          <Skills />
-          <Projects />
-          <Certifications />
-          <Contact />
+        <main>
+          <Hero />
+          <Suspense fallback={<div className="py-20 text-center">Loading...</div>}>
+            <About />
+            <Skills />
+            <Projects />
+            <Certifications />
+            <Contact />
+          </Suspense>
+        </main>
+        <Suspense fallback={null}>
           <Footer />
         </Suspense>
       </div>
