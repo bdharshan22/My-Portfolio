@@ -15,11 +15,10 @@ const Footer = lazy(() => import('./components/Footer.tsx'));
 function App() {
   const [loading, setLoading] = useState(true);
 
-  if (loading) return <SplashScreen onComplete={() => setLoading(false)} />;
-
   return (
     <ThemeProvider>
       <SEO />
+      {loading && <SplashScreen onComplete={() => setLoading(false)} />}
       <div className="min-h-screen transition-colors duration-300 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white">
         <Navbar />
         <main>

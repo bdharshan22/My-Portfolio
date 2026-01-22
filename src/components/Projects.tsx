@@ -15,7 +15,7 @@ const Projects: React.FC = () => {
     };
 
     return (
-        <section id="projects" className="py-24 bg-slate-50 dark:bg-slate-950 overflow-hidden min-h-screen flex flex-col justify-center relative">
+        <section id="projects" className="py-10 bg-slate-50 dark:bg-slate-950 overflow-hidden min-h-screen flex flex-col justify-center relative">
             <div className="container mx-auto px-6 z-10">
 
                 {/* Title Section */}
@@ -123,14 +123,14 @@ const Projects: React.FC = () => {
                 <div className="flex justify-center gap-6 mt-12">
                     <button
                         onClick={prevProject}
-                        className="p-4 rounded-full bg-slate-200 dark:bg-slate-800 hover:bg-white dark:hover:bg-slate-700 text-slate-600 dark:text-white transition-all shadow-lg hover:shadow-xl hover:scale-110 active:scale-95"
+                        className="p-4 rounded-full bg-transparent border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all hover:scale-110 active:scale-95"
                         aria-label="Previous project"
                     >
                         <ChevronLeft size={24} />
                     </button>
                     <button
                         onClick={nextProject}
-                        className="p-4 rounded-full bg-primary-600 hover:bg-primary-500 text-white transition-all shadow-lg shadow-primary-500/30 hover:shadow-primary-500/50 hover:scale-110 active:scale-95"
+                        className="p-4 rounded-full bg-transparent border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all hover:scale-110 active:scale-95"
                         aria-label="Next project"
                     >
                         <ChevronRight size={24} />

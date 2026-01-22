@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 interface SplashScreenProps {
   onComplete: () => void;
@@ -40,7 +40,11 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
   return (
     <AnimatePresence>
       {!isLoaded && (
-        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-950 overflow-hidden text-white">
+        <motion.div
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-slate-950 overflow-hidden text-white"
+        >
           {/* Background Grid Effect */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-size-[50px_50px] mask-[radial-gradient(ellipse_60%_60%_at_50%_50%,black,transparent)] pointer-events-none" />
 
@@ -65,7 +69,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
               INITIALIZING // {progress}%
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
     </AnimatePresence>
   );

@@ -12,7 +12,7 @@ const Skills: React.FC = () => {
   const [selectedTech, setSelectedTech] = useState<SimpleIcon | null>(null);
 
   return (
-    <section id="skills" className="py-24 bg-slate-50 dark:bg-slate-950 relative overflow-hidden min-h-screen flex flex-col items-center justify-center">
+    <section id="skills" className="py-10 bg-slate-50 dark:bg-slate-950 relative overflow-hidden flex flex-col items-center justify-center">
       {/* Ambient Background Glows */}
       <div className="absolute top-[20%] right-[-10%] w-125 h-125 bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[10%] left-[-10%] w-150 h-150 bg-purple-500/10 rounded-full blur-[120px] pointer-events-none" />
@@ -58,9 +58,9 @@ const Skills: React.FC = () => {
 
           {/* Decorative Rings - Hide when focused */}
           <motion.div animate={{ opacity: selectedTech ? 0 : 1 }} transition={{ duration: 0.5 }}>
-            <div className="absolute inset-0 border border-indigo-500/10 rounded-full animate-[spin_10s_linear_infinite]" />
-            <div className="absolute inset-10 border border-purple-500/10 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
-            <div className="absolute inset-20 border border-cyan-500/10 rounded-full animate-[spin_20s_linear_infinite]" />
+            <div className="absolute inset-28 border border-indigo-500/10 rounded-full animate-[spin_10s_linear_infinite]" />
+            <div className="absolute inset-44 border border-purple-500/10 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
+            <div className="absolute inset-60 border border-cyan-500/10 rounded-full animate-[spin_20s_linear_infinite]" />
           </motion.div>
 
           {/* Detail Overlay with Separated Icon */}
