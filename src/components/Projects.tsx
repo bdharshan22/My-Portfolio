@@ -24,7 +24,7 @@ const Projects: React.FC = () => {
                         Featured <span className="text-transparent bg-clip-text bg-linear-to-r from-primary-600 to-indigo-600">Works</span>
                     </h2>
                     <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
-                        Interact with the flow to explore my digital portfolio.
+                        Explore a curated collection of my technical projects and creative solutions.
                     </p>
                 </div>
 

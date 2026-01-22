@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin, Twitter, Mail } from "lucide-react";
 
@@ -17,6 +18,31 @@ const SOCIAL_LINKS = [
 ];
 
 const Contact = () => {
+  const [viewCount, setViewCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    const fetchViewCount = async () => {
+      try {
+        const hasVisited = localStorage.getItem("portfolio_viewed");
+        let url = "https://api.counterapi.dev/v1/bdharshan22-portfolio/views/";
+
+        if (!hasVisited) {
+          url += "up";
+          localStorage.setItem("portfolio_viewed", "true");
+        }
+
+        const response = await fetch(url);
+        const data = await response.json();
+        if (data && data.count) {
+          setViewCount(data.count);
+        }
+      } catch (error) {
+        console.error("Error fetching view count:", error);
+      }
+    };
+
+    fetchViewCount();
+  }, []);
 
   return (
     <section
@@ -92,6 +118,37 @@ const Contact = () => {
             </a>
           ))}
         </div>
+
+        {/* View Count Display */}
+        {viewCount !== null && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.5 }}
+            className="mt-16 text-left"
+          >
+            <div className="bg-[#1e1e1e] dark:bg-[#0d1117] rounded-lg border border-slate-800 p-4 shadow-2xl min-w-[280px]">
+              <div className="flex gap-2 mb-3 border-b border-slate-700/50 pb-2">
+                <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+                <div className="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                <div className="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+              </div>
+              <div className="font-mono text-sm space-y-1">
+                <div className="text-slate-400">
+                  <span className="text-pink-500">const</span> <span className="text-blue-400">visits</span> = <span className="text-emerald-400">{viewCount.toLocaleString()}</span>;
+                </div>
+                <div className="text-slate-400">
+                  <span className="text-slate-500">// Thanks for dropping by!</span>
+                </div>
+                <div className="flex items-center gap-1 text-slate-300 mt-2">
+                  <span className="text-emerald-500">➜</span>
+                  <span className="text-blue-400">~</span>
+                  <span className="animate-pulse">_</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
       </div>
     </section>
   );
