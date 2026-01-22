@@ -1,22 +1,39 @@
 import React, { useRef, useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Award, ExternalLink, BadgeCheck, Sparkles, ShieldCheck, Trophy } from 'lucide-react';
 import { CERTIFICATIONS_DATA } from '../constants.ts';
 
 const Certifications: React.FC = () => {
-    const targetRef = useRef<HTMLDivElement | null>(null);
-    const controls = useAnimation();
+    const scrollRef = useRef<HTMLDivElement | null>(null);
+    const [isPaused, setIsPaused] = React.useState(false);
 
     useEffect(() => {
-        // Auto-scroll the horizontal track from 0% to -50% continuously
-        controls.start({
-            x: ["0%", "-50%"],
-            transition: { duration: 10, ease: "linear", repeat: Infinity }
-        });
-    }, [controls]);
+        const scrollContainer = scrollRef.current;
+        if (!scrollContainer) return;
+
+        let animationFrameId: number;
+
+        const scroll = () => {
+            if (!isPaused && scrollContainer) {
+                // Adjust speed here (e.g., 1 for normal, 2 for fast)
+                scrollContainer.scrollLeft += 1;
+
+                // Reset scroll when we've scrolled past the first set of items
+                // This assumes smooth infinite scroll with duplicated content
+                if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+                    scrollContainer.scrollLeft = 0;
+                }
+            }
+            animationFrameId = requestAnimationFrame(scroll);
+        };
+
+        animationFrameId = requestAnimationFrame(scroll);
+
+        return () => cancelAnimationFrame(animationFrameId);
+    }, [isPaused]);
 
     return (
-        <section ref={targetRef} id="certifications" className="relative py-24 bg-slate-50 dark:bg-slate-950 overflow-hidden">
+        <section id="certifications" className="relative py-24 bg-slate-50 dark:bg-slate-950 overflow-hidden">
             <div className="flex flex-col items-center justify-center container mx-auto">
 
                 {/* Header Section */}
@@ -35,11 +52,19 @@ const Certifications: React.FC = () => {
                 </div>
 
                 {/* Horizontal Card Track */}
-                <motion.div initial={{ x: "0%" }} animate={controls} className="flex gap-8 px-6 sm:px-24 items-center w-full">
+                <div
+                    ref={scrollRef}
+                    className="flex gap-8 px-6 sm:px-24 items-center w-full overflow-x-auto scrollbar-hide no-scrollbar"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    onTouchStart={() => setIsPaused(true)}
+                    onTouchEnd={() => setIsPaused(false)}
+                    style={{ scrollBehavior: 'auto' }} // Ensure immediate update for loop reset
+                >
                     {[...CERTIFICATIONS_DATA, ...CERTIFICATIONS_DATA].map((cert, index) => (
                         <CertificationCard key={`${cert.id}-${index}`} cert={cert} index={index} />
                     ))}
-                </motion.div>
+                </div>
 
             </div>
         </section>
