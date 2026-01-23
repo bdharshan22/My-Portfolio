@@ -1,9 +1,36 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Award, ExternalLink, BadgeCheck, Sparkles, ShieldCheck, Trophy } from 'lucide-react';
 import { CERTIFICATIONS_DATA } from '../constants.ts';
 
 const Certifications: React.FC = () => {
+    const scrollRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const scrollContainer = scrollRef.current;
+        if (!scrollContainer) return;
+
+        let animationFrameId: number;
+
+        const scroll = () => {
+            if (scrollContainer) {
+                // Stop scrolling if we've reached the end
+                if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 1) {
+                    // Stop the animation
+                    cancelAnimationFrame(animationFrameId);
+                    return;
+                } else {
+                    scrollContainer.scrollLeft += 1; // Adjust speed (1px per frame)
+                    animationFrameId = requestAnimationFrame(scroll);
+                }
+            }
+        };
+
+        animationFrameId = requestAnimationFrame(scroll);
+
+        return () => cancelAnimationFrame(animationFrameId);
+    }, []);
+
     return (
         <section id="certifications" className="relative py-24 bg-slate-50 dark:bg-slate-950 overflow-hidden">
             <div className="flex flex-col items-center justify-center container mx-auto">
@@ -23,16 +50,16 @@ const Certifications: React.FC = () => {
                     </p>
                 </div>
 
-                {/* Horizontal Marquee Container */}
-                <div className="relative w-full overflow-hidden mask-linear-gradient">
-                    <div className="flex w-max gap-8 animate-scroll hover:pause">
+                {/* Scrollable Container with Manual Interaction */}
+                <div className="relative w-full mask-linear-gradient">
+                    <div
+                        ref={scrollRef}
+                        className="flex w-full overflow-x-auto gap-8 pb-8 snap-x no-scrollbar"
+                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                    >
                         {/* First set of items */}
                         {CERTIFICATIONS_DATA.map((cert, index) => (
                             <CertificationCard key={`org-${cert.id}`} cert={cert} index={index} />
-                        ))}
-                        {/* Duplicate set for seamless looping */}
-                        {CERTIFICATIONS_DATA.map((cert, index) => (
-                            <CertificationCard key={`dup-${cert.id}`} cert={cert} index={index} />
                         ))}
                     </div>
                 </div>
