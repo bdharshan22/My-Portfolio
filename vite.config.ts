@@ -9,7 +9,6 @@ export default defineConfig({
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom', 'framer-motion'],
-          ui: ['lucide-react', 'react-icon-cloud', 'simple-icons']
         }
       }
     }
