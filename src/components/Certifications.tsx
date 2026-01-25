@@ -120,13 +120,13 @@ const CertificationCard = ({ cert, index }: { cert: Certification, index: number
                     </span>
                     <span className={`font-bold px-4 py-1.5 rounded-full text-sm ${cert.date === 'Ongoing'
                         ? 'bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400'
-                        : cert.date === 'Completed'
-                            ? 'bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400'
-                            : 'text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800'
+                        : 'bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400'
                         }`}>
-                        {cert.date}
+                        {cert.date === 'Ongoing' ? 'Ongoing' : 'Completed'}
                     </span>
                 </div>
+
+
 
                 {/* Hover Sparkle */}
                 <motion.div
