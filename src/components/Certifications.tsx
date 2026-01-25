@@ -11,24 +11,41 @@ const Certifications: React.FC = () => {
         if (!scrollContainer) return;
 
         let animationFrameId: number;
+        let currentScroll = scrollContainer.scrollLeft;
+        let maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
-        const scroll = () => {
+        const updateDimensions = () => {
             if (scrollContainer) {
-                // Stop scrolling if we've reached the end
-                if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 1) {
-                    // Stop the animation
-                    cancelAnimationFrame(animationFrameId);
-                    return;
-                } else {
-                    scrollContainer.scrollLeft += 1; // Adjust speed (1px per frame)
-                    animationFrameId = requestAnimationFrame(scroll);
-                }
+                maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+                // Update currentScroll in case resize changed things significantly, though usually not strictly necessary for simple auto-scroll
+                currentScroll = scrollContainer.scrollLeft;
             }
         };
 
+        window.addEventListener('resize', updateDimensions);
+
+        const scroll = () => {
+            if (currentScroll >= maxScroll) {
+                // Determine if we should potentialy reset or stop. 
+                // Original logic was just stop.
+                cancelAnimationFrame(animationFrameId);
+                return;
+            } else {
+                currentScroll += 1; // Adjust speed (1px per frame)
+                scrollContainer.scrollLeft = currentScroll;
+                animationFrameId = requestAnimationFrame(scroll);
+            }
+        };
+
+        // Initial measurement
+        updateDimensions();
+
         animationFrameId = requestAnimationFrame(scroll);
 
-        return () => cancelAnimationFrame(animationFrameId);
+        return () => {
+            cancelAnimationFrame(animationFrameId);
+            window.removeEventListener('resize', updateDimensions);
+        };
     }, []);
 
     return (
