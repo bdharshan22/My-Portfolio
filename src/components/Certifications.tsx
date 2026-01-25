@@ -1,13 +1,9 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, ExternalLink, BadgeCheck, Sparkles, ShieldCheck, Trophy } from 'lucide-react';
 import { CERTIFICATIONS_DATA } from '../constants.ts';
 
 const Certifications: React.FC = () => {
-    // Duplicate data for seamless scrolling
-    const duplicatedCertifications = [...CERTIFICATIONS_DATA, ...CERTIFICATIONS_DATA];
-
     return (
         <section id="certifications" className="relative py-24 bg-slate-50 dark:bg-slate-950 overflow-hidden">
             <div className="flex flex-col items-center justify-center container mx-auto">
@@ -27,12 +23,16 @@ const Certifications: React.FC = () => {
                     </p>
                 </div>
 
-                {/* CSS Marquee Container */}
-                <div className="relative w-full overflow-hidden mask-linear-gradient">
-                    <div className="flex w-max animate-scroll gap-8 hover:[animation-play-state:paused]">
-                        {duplicatedCertifications.map((cert, index) => (
+                {/* Scrollable Container */}
+                <div
+                    className="relative w-full overflow-hidden mask-linear-gradient"
+                >
+                    <div
+                        className="flex w-full overflow-x-auto gap-8 pb-8 px-4 no-scrollbar scroll-smooth"
+                    >
+                        {CERTIFICATIONS_DATA.map((cert, index) => (
                             <CertificationCard
-                                key={`cert - ${index} `}
+                                key={`cert-${index}`}
                                 cert={cert}
                                 index={index}
                             />
@@ -56,7 +56,7 @@ interface Certification {
 const CertificationCard = ({ cert, index }: { cert: Certification, index: number }) => {
     return (
         <div
-            className="relative group w-[75vw] md:w-87.5 h-[45vh] md:h-80 shrink-0"
+            className="relative group w-[85vw] md:w-96 h-auto min-h-[320px] shrink-0"
         >
             <div className="absolute -inset-0.5 bg-linear-to-r from-cyan-500 via-indigo-500 to-purple-500 rounded-2xl opacity-0 group-hover:opacity-75 blur transition duration-500"></div>
 
@@ -94,9 +94,9 @@ const CertificationCard = ({ cert, index }: { cert: Certification, index: number
                     <span className="text-slate-500 dark:text-slate-400 font-mono text-xs uppercase tracking-wider flex items-center gap-2">
                         <Trophy size={14} /> {cert.date === 'Ongoing' ? 'Status' : 'Issued'}
                     </span>
-                    <span className={`font - bold px - 4 py - 1.5 rounded - full text - sm ${cert.date === 'Ongoing'
-                            ? 'bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400'
-                            : 'bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400'
+                    <span className={`font-bold px-4 py-1.5 rounded-full text-sm ${cert.date === 'Ongoing'
+                        ? 'bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400'
+                        : 'bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400'
                         } `}>
                         {cert.date === 'Ongoing' ? 'Ongoing' : 'Completed'}
                     </span>
