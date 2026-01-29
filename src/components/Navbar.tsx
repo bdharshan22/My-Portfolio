@@ -146,12 +146,12 @@ export const NavbarLogo = () => {
 
 
 const navItems = [
-  { name: "Home", link: "#home", icon: <Home size={20} /> },
-  { name: "About", link: "#about", icon: <User size={20} /> },
-  { name: "Skills", link: "#skills", icon: <Code size={20} /> }, // Added Skills link
-  { name: "Projects", link: "#projects", icon: <Briefcase size={20} /> },
-  { name: "Certifications", link: "#certifications", icon: <Award size={20} /> },
-  { name: "Contact", link: "#contact", icon: <Mail size={20} /> },
+  { name: "Home", link: "/", icon: <Home size={20} /> },
+  { name: "About", link: "/about", icon: <User size={20} /> },
+  { name: "Skills", link: "/skills", icon: <Code size={20} /> }, // Added Skills link
+  { name: "Projects", link: "/projects", icon: <Briefcase size={20} /> },
+  { name: "Certifications", link: "/certifications", icon: <Award size={20} /> },
+  { name: "Contact", link: "/contact", icon: <Mail size={20} /> },
 ];
 
 // ... existing code ...

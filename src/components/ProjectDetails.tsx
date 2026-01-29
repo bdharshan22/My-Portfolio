@@ -51,7 +51,7 @@ const ProjectDetails: React.FC = () => {
 
             <div className="min-h-screen bg-slate-50 dark:bg-slate-950 pt-24 pb-20 px-4 md:px-6">
                 <div className="container mx-auto max-w-6xl">
-                    <Link to="/" className="inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 mb-8 transition-colors group">
+                    <Link to="/projects" className="inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 mb-8 transition-colors group">
                         <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" /> Back to Projects
                     </Link>
 
@@ -170,8 +170,30 @@ const ProjectDetails: React.FC = () => {
                             </div>
                         </div>
                     </motion.div>
-                </div>
-            </div>
+
+                    {/* Cross-Linking Section */}
+                    <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {/* More Projects Link */}
+                        <div className="bg-slate-900 rounded-3xl p-8 border border-slate-800 flex flex-col items-start justify-center hover:border-indigo-500/50 transition-colors group">
+                            <h3 className="text-2xl font-bold text-white mb-2">Explore More</h3>
+                            <p className="text-slate-400 mb-6">Check out my other projects and experiments.</p>
+                            <Link to="/projects" className="inline-flex items-center gap-2 text-indigo-400 font-bold group-hover:gap-3 transition-all">
+                                View All Projects <ArrowLeft className="rotate-180" size={20} />
+                            </Link>
+                        </div>
+
+                        {/* Back to Home Link */}
+                        <div className="bg-slate-900 rounded-3xl p-8 border border-slate-800 flex flex-col items-start justify-center hover:border-emerald-500/50 transition-colors group">
+                            <h3 className="text-2xl font-bold text-white mb-2">Get in Touch</h3>
+                            <p className="text-slate-400 mb-6">Interested in working together? Let's talk.</p>
+                            <Link to="/contact" className="inline-flex items-center gap-2 text-emerald-400 font-bold group-hover:gap-3 transition-all">
+                                Contact Me <ArrowLeft className="rotate-180" size={20} />
+                            </Link>
+                        </div>
+                    </div>
+
+                </div >
+            </div >
         </>
     );
 };

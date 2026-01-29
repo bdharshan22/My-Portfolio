@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Github, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 import { PROJECTS_DATA } from '../constants.ts';
-import ProjectModal from './ProjectModal.tsx';
+
+const slugify = (text: string) => {
+    return text
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w\-]+/g, '')
+        .replace(/\-\-+/g, '-');
+};
 
 const Projects: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState(0);
-    const [selectedProject, setSelectedProject] = useState<typeof PROJECTS_DATA[0] | null>(null);
+    const navigate = useNavigate();
 
     const nextProject = () => {
         setActiveIndex((prev) => (prev + 1) % PROJECTS_DATA.length);
@@ -14,6 +24,10 @@ const Projects: React.FC = () => {
 
     const prevProject = () => {
         setActiveIndex((prev) => (prev - 1 + PROJECTS_DATA.length) % PROJECTS_DATA.length);
+    };
+
+    const handleCardClick = (projectTitle: string) => {
+        navigate(`/projects/${slugify(projectTitle)}`);
     };
 
     return (
@@ -40,7 +54,13 @@ const Projects: React.FC = () => {
                             <motion.div
                                 key={project.id}
                                 className={`absolute w-[85vw] md:w-150 h-[55vh] md:h-100 bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-700 cursor-pointer transition-shadow duration-300 ${isActive ? 'shadow-primary-500/20 z-10' : 'hover:brightness-110'}`}
-                                onClick={() => setActiveIndex(index)}
+                                onClick={() => {
+                                    if (isActive) {
+                                        handleCardClick(project.title);
+                                    } else {
+                                        setActiveIndex(index);
+                                    }
+                                }}
                                 animate={{
                                     rotateY: offset * 45,
                                     scale: 1 - Math.abs(offset) * 0.15,
@@ -96,15 +116,15 @@ const Projects: React.FC = () => {
                                     </div>
 
                                     <div className="flex gap-4">
-                                        <button
+                                        <Link
+                                            to={`/projects/${slugify(project.title)}`}
                                             className="flex-1 py-3 bg-white text-slate-900 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-slate-200 text-sm transition-colors shadow-lg pointer-events-auto"
                                             onClick={(e) => {
                                                 e.stopPropagation();
-                                                setSelectedProject(project);
                                             }}
                                         >
                                             View Details <ArrowUpRight size={18} />
-                                        </button>
+                                        </Link>
                                         <a
                                             href={project.githubUrl}
                                             target="_blank"
@@ -140,12 +160,6 @@ const Projects: React.FC = () => {
                 </div>
 
             </div>
-
-            <ProjectModal
-                project={selectedProject}
-                isOpen={!!selectedProject}
-                onClose={() => setSelectedProject(null)}
-            />
         </section>
     );
 };
