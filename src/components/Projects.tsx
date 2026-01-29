@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Github, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { PROJECTS_DATA } from '../constants';
+import ProjectModal from './ProjectModal';
 
 const Projects: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState(0);
+    const [selectedProject, setSelectedProject] = useState<typeof PROJECTS_DATA[0] | null>(null);
 
     const nextProject = () => {
         setActiveIndex((prev) => (prev + 1) % PROJECTS_DATA.length);
@@ -94,15 +96,15 @@ const Projects: React.FC = () => {
                                     </div>
 
                                     <div className="flex gap-4">
-                                        <a
-                                            href={project.liveUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                        <button
                                             className="flex-1 py-3 bg-white text-slate-900 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-slate-200 text-sm transition-colors shadow-lg pointer-events-auto"
-                                            onClick={(e) => e.stopPropagation()}
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                setSelectedProject(project);
+                                            }}
                                         >
-                                            View Project <ArrowUpRight size={18} />
-                                        </a>
+                                            View Details <ArrowUpRight size={18} />
+                                        </button>
                                         <a
                                             href={project.githubUrl}
                                             target="_blank"
@@ -138,6 +140,12 @@ const Projects: React.FC = () => {
                 </div>
 
             </div>
+
+            <ProjectModal
+                project={selectedProject}
+                isOpen={!!selectedProject}
+                onClose={() => setSelectedProject(null)}
+            />
         </section>
     );
 };

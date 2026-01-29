@@ -136,7 +136,7 @@ export const NavbarLogo = () => {
       className="flex items-center gap-2 px-2 py-1 font-bold text-xl tracking-tighter text-slate-900 dark:text-white group"
     >
       <div className="w-8 h-8 rounded-full overflow-hidden shadow-md border border-slate-200 dark:border-slate-700">
-        <img src="/images/logo 3.jpeg" alt="Logo" className="w-full h-full object-cover" loading="lazy" />
+        <img src="/images/D-Logo.png" alt="Logo" className="w-full h-full object-cover" loading="lazy" />
       </div>
       <span className="hidden sm:inline">Portfolio</span>
     </a>

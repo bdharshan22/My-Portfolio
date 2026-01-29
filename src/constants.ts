@@ -2,12 +2,12 @@
 export const HERO_DATA = {
     name: "Dharshan B",
     title: "Full Stack Web Developer",
-    intro: "Building (and occasionally designing) scalable and user-focused web applications. Currently, I’m focused on creating accessible, innovative, and high-performance digital experiences",
+    intro: "Specializing in building and designing scalable, user-centric web applications. Dedicated to delivering accessible, innovative, and high-performance digital experiences that drive real value.",
 };
 
 export const ABOUT_DATA = {
-    summary: "I'm an IT undergraduate and Full Stack WebDeveloper dedicated to building (and occasionally designing) scalable, user-focused web applications.",
-    description: "Currently, I’m focused on creating accessible, innovative, and high-performance digital experiences. I specialize in crafting applications that not only look great but perform flawlessly. My journey is driven by a constant curiosity and a desire to solve complex problems through clean, efficient code."
+    summary: "Full Stack Developer passionate about building and designing scalable, user-focused web applications.",
+    description: "I focus on creating accessible, innovative, and high-performance digital experiences. My work ensures applications not only look stunning but perform flawlessly, driven by curiosity and a commitment to clean, efficient code."
 }
 
 

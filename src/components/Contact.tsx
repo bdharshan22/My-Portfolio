@@ -57,7 +57,7 @@ const Contact = () => {
           {/* Logo Placeholder */}
           {/* Logo */}
           <div className="w-20 h-20 rounded-full flex items-center justify-center shadow-lg shadow-indigo-500/50 overflow-hidden bg-white dark:bg-slate-800">
-            <img src="/images/logo 3.jpeg" alt="Logo" className="w-full h-full object-cover" loading="lazy" />
+            <img src="/images/D-Logo.png" alt="Logo" className="w-full h-full object-cover" loading="lazy" />
           </div>
         </div>
 

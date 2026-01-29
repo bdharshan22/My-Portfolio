@@ -7,11 +7,15 @@ interface SEOProps {
     keywords?: string[];
     image?: string;
     url?: string;
+    type?: 'website' | 'article' | 'profile' | 'software';
+    author?: string;
+    applicationCategory?: string;
+    operatingSystem?: string;
 }
 
 const SEO: React.FC<SEOProps> = ({
     title = "Dharshan B | Full Stack Developer",
-    description = "Full Stack Developer specializing in building scalable web applications with React, TypeScript, and Node.js.",
+    description = "Specializing in building and designing scalable, user-centric web applications. Dedicated to delivering accessible, innovative, and high-performance digital experiences.",
     keywords = ["Full Stack Developer", "React Developer", "Web Development", "Portfolio", "Dharshan B"],
     image = "/images/Portfolio.webp",
     url = "https://dharshanb.vercel.app"
