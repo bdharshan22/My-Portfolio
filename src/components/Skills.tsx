@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Cpu, X } from 'lucide-react';
-import { m as motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence, useInView } from 'framer-motion';
 import TechGlobe from './TechGlobe.tsx';
 // We need the type definition. Since it's from a library, we can import it or just use 'any' if lazy, but let's try to be type safe if possible, 
 // or just rely on the shape we know. 
@@ -10,6 +10,8 @@ import { type SimpleIcon } from 'react-icon-cloud';
 
 const Skills: React.FC = () => {
   const [selectedTech, setSelectedTech] = useState<SimpleIcon | null>(null);
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, margin: "0px 0px -200px 0px" });
 
   return (
     <section id="skills" className="py-10 bg-slate-50 dark:bg-slate-950 relative overflow-hidden flex flex-col items-center justify-center">
@@ -42,6 +44,7 @@ const Skills: React.FC = () => {
         </motion.div>
 
         <motion.div
+          ref={containerRef}
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -53,7 +56,7 @@ const Skills: React.FC = () => {
             animate={{ scale: selectedTech ? 0.5 : 1, opacity: selectedTech ? 0.2 : 1, filter: selectedTech ? 'blur(8px)' : 'blur(0px)' }}
             className="w-full h-full relative z-20 transition-all duration-500 ease-out"
           >
-            <TechGlobe onIconClick={(icon) => setSelectedTech(icon)} />
+            {isInView && <TechGlobe onIconClick={(icon) => setSelectedTech(icon)} />}
           </motion.div>
 
           {/* Decorative Rings - Hide when focused */}
