@@ -156,7 +156,7 @@ const navItems = [
 
 // ... existing code ...
 
-import { ThemeModeToggle, ThemeColorPicker } from "./ThemeToggle";
+import { ThemeModeToggle, ThemeColorPicker } from "./ThemeToggle.tsx";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

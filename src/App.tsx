@@ -1,11 +1,11 @@
 import { useState, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import SplashScreen from './components/SplashScreen';
-import SEO from './components/SEO';
-import { ThemeProvider } from './context/ThemeProvider';
-import ScrollToTop from './components/ScrollToTop';
+import Navbar from './components/Navbar.tsx';
+import Hero from './components/Hero.tsx';
+import SplashScreen from './components/SplashScreen.tsx';
+import SEO from './components/SEO.tsx';
+import { ThemeProvider } from './context/ThemeProvider.tsx';
+import ScrollToTop from './components/ScrollToTop.tsx';
 
 const About = lazy(() => import('./components/About.tsx'));
 const Skills = lazy(() => import('./components/Skills.tsx'));

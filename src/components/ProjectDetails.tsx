@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { PROJECTS_DATA } from '../constants';
+import { PROJECTS_DATA } from '../constants.ts';
 import { Github, ExternalLink, ArrowLeft, Code2, Layers, CheckCircle2 } from 'lucide-react';
-import SEO from './SEO';
+import SEO from './SEO.tsx';
 
 const slugify = (text: string) => {
     return text

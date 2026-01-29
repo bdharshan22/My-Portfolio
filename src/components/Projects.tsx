@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Github, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
-import { PROJECTS_DATA } from '../constants';
-import ProjectModal from './ProjectModal';
+import { PROJECTS_DATA } from '../constants.ts';
+import ProjectModal from './ProjectModal.tsx';
 
 const Projects: React.FC = () => {
     const [activeIndex, setActiveIndex] = useState(0);

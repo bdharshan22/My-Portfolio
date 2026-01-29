@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Cpu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import TechGlobe from './TechGlobe';
+import TechGlobe from './TechGlobe.tsx';
 // We need the type definition. Since it's from a library, we can import it or just use 'any' if lazy, but let's try to be type safe if possible, 
 // or just rely on the shape we know. 
 // However, TechGlobe exports are limited. Let's just assume 'any' or replicate interface for now to avoid extensive imports if not exported.

@@ -3,7 +3,7 @@ import { motion, type Variants } from 'framer-motion';
 import { ArrowRight, Download, Github, Linkedin } from 'lucide-react';
 import { HERO_DATA } from '../constants.ts';
 import resumePdf from '../assets/Resume.pdf';
-import Typewriter from './Typewriter';
+import Typewriter from './Typewriter.tsx';
 
 // Custom LeetCode Icon
 const LeetCodeIcon = ({ size = 24 }: { size?: number }) => (

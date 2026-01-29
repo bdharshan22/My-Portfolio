@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Palette, Moon, Sun, Check, X } from "lucide-react";
-import { useTheme } from "../hooks/useTheme";
-import type { AccentColor } from "../context/ThemeContext";
+import { useTheme } from "../hooks/useTheme.tsx";
+import type { AccentColor } from "../context/ThemeContext.tsx";
 
 // Color definitions
 const COLORS: { label: string; value: AccentColor; bg: string }[] = [

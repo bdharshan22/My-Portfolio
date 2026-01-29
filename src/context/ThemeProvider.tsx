@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ThemeContext, type Theme, type AccentColor } from './ThemeContext';
+import { ThemeContext, type Theme, type AccentColor } from './ThemeContext.tsx';
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     // Theme State
