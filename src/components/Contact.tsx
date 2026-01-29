@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { ArrowRight, Github, Linkedin, Twitter, Mail } from "lucide-react";
 
 // Custom StackOverflow Icon

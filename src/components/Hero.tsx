@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, type Variants } from 'framer-motion';
+import { m as motion, type Variants } from 'framer-motion';
 import { ArrowRight, Download, Github, Linkedin } from 'lucide-react';
 import { HERO_DATA } from '../constants.ts';
 import resumePdf from '../assets/Resume.pdf';

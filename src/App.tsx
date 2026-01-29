@@ -28,35 +28,41 @@ const Home = () => (
   </>
 );
 
+import { LazyMotion, domAnimation } from 'framer-motion';
+
+// ... (imports)
+
 function App() {
   const [loading, setLoading] = useState(true);
 
   return (
     <ThemeProvider>
-      <Router>
-        <ScrollToTop />
-        <SEO />
-        {loading && <SplashScreen onComplete={() => setLoading(false)} />}
-        <div className="min-h-screen transition-colors duration-300 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white">
-          <Navbar />
-          <main>
-            <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<Home />} />
-                <Route path="/skills" element={<Home />} />
-                <Route path="/projects" element={<Home />} />
-                <Route path="/certifications" element={<Home />} />
-                <Route path="/contact" element={<Home />} />
-                <Route path="/projects/:slug" element={<ProjectDetails />} />
-              </Routes>
+      <LazyMotion features={domAnimation}>
+        <Router>
+          <ScrollToTop />
+          <SEO />
+          {loading && <SplashScreen onComplete={() => setLoading(false)} />}
+          <div className="min-h-screen transition-colors duration-300 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white">
+            <Navbar />
+            <main>
+              <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/about" element={<Home />} />
+                  <Route path="/skills" element={<Home />} />
+                  <Route path="/projects" element={<Home />} />
+                  <Route path="/certifications" element={<Home />} />
+                  <Route path="/contact" element={<Home />} />
+                  <Route path="/projects/:slug" element={<ProjectDetails />} />
+                </Routes>
+              </Suspense>
+            </main>
+            <Suspense fallback={null}>
+              <Footer />
             </Suspense>
-          </main>
-          <Suspense fallback={null}>
-            <Footer />
-          </Suspense>
-        </div>
-      </Router>
+          </div>
+        </Router>
+      </LazyMotion>
     </ThemeProvider>
   );
 }

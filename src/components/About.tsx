@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { Terminal, Coffee, Globe, Cpu } from 'lucide-react';
 import { ABOUT_DATA } from '../constants.ts';
 
@@ -7,7 +7,7 @@ const About: React.FC = () => {
   return (
     <section id="about" className="py-24 bg-slate-50 dark:bg-slate-950 relative overflow-hidden">
       {/* Background Decorations */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 right-0 w-125 h-125 bg-indigo-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
         <div className="absolute bottom-0 left-0 w-125 h-125 bg-purple-500/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
       </div>

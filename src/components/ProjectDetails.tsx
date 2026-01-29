@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { useParams, Link } from 'react-router-dom';
 import { PROJECTS_DATA } from '../constants.ts';
 import { Github, ExternalLink, ArrowLeft, Code2, Layers, CheckCircle2 } from 'lucide-react';

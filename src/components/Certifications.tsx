@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import { Award, ExternalLink, BadgeCheck, Sparkles, ShieldCheck, Trophy } from 'lucide-react';
 import { CERTIFICATIONS_DATA } from '../constants.ts';
 

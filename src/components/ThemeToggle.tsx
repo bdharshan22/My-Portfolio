@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m as motion, AnimatePresence } from "framer-motion";
 import { Palette, Moon, Sun, Check, X } from "lucide-react";
 import { useTheme } from "../hooks/useTheme.tsx";
 import type { AccentColor } from "../context/ThemeContext.tsx";

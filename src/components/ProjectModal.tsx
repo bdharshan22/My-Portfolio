@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from 'framer-motion';
 import { X, Github, ExternalLink, Code2, Layers, CheckCircle2 } from 'lucide-react';
 import { createPortal } from 'react-dom';
 
