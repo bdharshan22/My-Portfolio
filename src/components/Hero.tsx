@@ -69,7 +69,7 @@ const Hero: React.FC = () => {
       {/* Background Blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
+        <div className="absolute inset-0 bg-[url('/images/noise.svg')] opacity-20" />
         <div className="absolute inset-0 bg-grid-slate-200/[0.04] bg-position-[bottom_1px_center] dark:bg-grid-slate-700/[0.05]"
           style={{ maskImage: 'linear-gradient(to bottom, transparent, black)' }}
         />
@@ -146,10 +146,10 @@ const Hero: React.FC = () => {
           >
             <motion.div
               animate={floatAnimation}
-              className="relative w-full aspect-square max-w-xs mx-auto"
+              className="relative w-full aspect-square max-w-xs mx-auto will-change-transform"
             >
               {/* Background Glow */}
-              <div className="absolute inset-0 bg-primary-500 blur-[80px] opacity-20 animate-pulse rounded-full" />
+              <div className="absolute inset-0 bg-primary-500 blur-[80px] opacity-20 rounded-full" />
 
               {/* Main Image Container */}
               <div className="relative z-10 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shadow-2xl">
